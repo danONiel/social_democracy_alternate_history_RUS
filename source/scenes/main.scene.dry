@@ -1,20 +1,20 @@
-title: Next month
+title: Следующий месяц
 set-bg: img/map_2.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
-    Q.pinnedCardsDescription = 'Advisors - an action is available.';
+    Q.pinnedCardsDescription = 'Советники - доступно действие.';
 } else if (Q.advisor_action_timer == 1) {
-    Q.pinnedCardsDescription = 'Advisors - next action available in 1 month.';
+    Q.pinnedCardsDescription = 'Советники - следующее действие доступно через 1 месяц.';
 } else {
-    Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
+    Q.pinnedCardsDescription = 'Советники - следующее действие доступно через ' + Q.advisor_action_timer + ' months.';
 }
 !}
 max-cards: 3
 
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
+#Здесь будет отображена основная колода. При нажатии на колоду в вашей руке появляется карта. При нажатии на карту эта карта активируется.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
+[? if year = 1928 and month = 2 : Нынешнее правобуржуазное правительство пало. Следующие выборы назначены на май этого года. ?]
 
 - @party
 - @govt
@@ -26,18 +26,18 @@ set-bg: img/map_2.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
-    Q.pinnedCardsDescription = 'Advisors - an action is available.';
+    Q.pinnedCardsDescription = 'Советники - доступно действие.';
 } else if (Q.advisor_action_timer == 1) {
-    Q.pinnedCardsDescription = 'Advisors - next action available in 1 month.';
+    Q.pinnedCardsDescription = 'Советники - следующее действие доступно через 1 месяц.';
 } else {
-    Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
+    Q.pinnedCardsDescription = 'Советники - следующее действие доступно через ' + Q.advisor_action_timer + ' months.';
 }
 !}
 max-cards: 4
 
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
+#Здесь будет отображена основная колода. При нажатии на колоду в вашей руке появляется карта. При нажатии на карту эта карта активируется.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
+[? if year = 1928 and month = 2 : Нынешнее правобуржуазное правительство пало. Следующие выборы назначены на май этого года. ?]
 
 - @party
 - @govt
@@ -46,14 +46,14 @@ max-cards: 4
 
 
 @party
-title: Party Affairs
+title: Партийные дела
 card-image: img/Vorwaerts_nr_1.png
 is-deck: true
 
-- #party_affairs
+- #Партийные дела
 
 @govt
-title: Government Affairs
+title: Государственные дела
 view-if: time >= 6
 card-image: img/reichstag_2.jpg
 is-deck: true
