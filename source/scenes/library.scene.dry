@@ -1,35 +1,35 @@
-title: library
+title: Библеотека
 new-page: true
 is-special: true
 go-to: menu
 
-= The Library
+= Библеотека
 
-Herein contains relevant information about the government and politics of the German republic.
+Здесь содержится актуальная информация о правительстве и политике Германской республики.
 
 @menu
 
-- @government: Germany's system of government
-- @weimar_timeline: Timeline of the Weimar Republic before 1928
-- @curr_gov: Current government details
-- @demographics: Demographics
-- @parties: Parties
-- @public_opinion: Public opinion (and projected election results)
-- @paramilitaries: Paramilitary groups
-- @factions: Internal factions
-- @figures: Figures and charts
-- @backSpecialScene: Exit library.
+- @government: Государственная система Германии
+- @weimar_timeline: Хронология Веймарской республики до 1928 года
+- @curr_gov: Информация о текущем правительстве
+- @demographics: Демография
+- @parties: Партии
+- @public_opinion: Общественное мнение (и прогнозируемые результаты выборов)
+- @paramilitaries: Военизированные группировки
+- @factions: Внутренние группировки
+- @figures: Рисунки и диаграммы
+- @backSpecialScene: Выход.
 
 @government
 go-to: menu
 
-The German Republic, called by some of our detractors as the "Weimar Republic", is a parliamentary republic with a somewhat weak president and a strong parliament, called the Reichstag. The Reichstag is responsible for governing, while the President has a largely ceremonial role but also has some important governing responsibilities.
+Немецкая Республика, которую некоторые наши недоброжелатели называют "Веймарской республикой", является парламентской республикой с несколько слабым президентом и сильным парламентом, называемым рейхстагом. Рейхстаг отвечает за управление страной, в то время как президент играет в основном церемониальную роль, но также выполняет некоторые важные руководящие обязанности.
 
-The Reichstag is elected based on a proportional representation system, giving parties seats roughly proportional to their vote share in each electoral district. The Reichstag then elects the Chancellor and the cabinet by a majority vote, who are responsible for government. A majority vote-of-no-confidence can remove the current government.
+Рейхстаг избирается на основе системы пропорционального представительства, при которой партиям предоставляются места, примерно пропорциональные их доле голосов в каждом избирательном округе. Затем рейхстаг большинством голосов избирает канцлера и кабинет министров, которые отвечают за управление страной. Вотум недоверия, вынесенный большинством голосов, может привести к отставке нынешнего правительства.
 
-The President is elected by a national direct vote, in two rounds. The second round is used if the first round does not result in a majority for one candidate; the candidate who receives a plurality in the second round becomes president (there is no obligation for weaker candidates to drop out). The role of the president is mostly to represent Germany, but he also has some crucial governing powers. The president and chancellor can together use emergency decrees to govern, bypassing the Reichstag. The president can also appoint or remove a chancellor when a parliamentary majority is unable to be established, and can thus influence the formation of a government.
+Президент избирается всенародным прямым голосованием в два тура. Второй тур проводится, если в первом туре ни один кандидат не получил большинства голосов; кандидат, получивший большинство голосов во втором туре, становится президентом (более слабые кандидаты не обязаны выбывать). Роль президента в основном заключается в том, чтобы представлять Германию, но он также обладает некоторыми важными полномочиями в области управления. Президент и канцлер могут совместно использовать чрезвычайные указы для управления страной, минуя рейхстаг. Президент также может назначать или смещать канцлера, когда не удается сформировать парламентское большинство, и, таким образом, может влиять на формирование правительства.
 
-Germany is divided into a number of states, each of which have their own governments with some responsibilities. By far the largest and most important state is Prussia.
+Германия разделена на несколько земель, каждое из которых имеет свои собственные правительства с определенными обязанностями. На сегодняшний день самой крупной и важной землей является Пруссия.
 
 @weimar_timeline
 go-to: menu
