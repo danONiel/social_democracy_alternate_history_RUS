@@ -1,56 +1,56 @@
-title: Game Over.
+title: Конец
 new-page: true
 go-to: eg_menu
 on-arrival: {!
 Q.game_over = 1;
-// Achievements:
-// Große Koalition - form a grand coalition
-// Eiserne Front - Form the Iron Front.
+// Достижения:
+// Große Koalition - Сформировать Большую Коалицию.
+// Eiserne Front - Сформировать Железный Фронт.
 this.achieve('game_completed');
 
-// Roter Zar von Preußen - At the end of the game, Otto Braun is president, chancellor, and minister-president of prussia at the same time.
+// Roter Zar von Preußen - К концу игры Отто Браун должен стать президентом, канцлером, и министром-президентом Пруссии одноврменно.
 if (Q.president == 'Braun' && Q.chancellor == 'Braun' && Q.spd_prussia) {
     this.achieve('red_tzar_of_prussia');
 }
-// Bürgerkrieg - enter a long civil war.
+// Bürgerkrieg - Начать затяжную гражданскую войну.
 if (Q.long_war) {
     this.achieve('civil_war');
 }
-// Sieg für die Republik - victory for the republic
+// Sieg für die Republik - Победа республики.
 if (Q.republic_victory) {
     this.achieve('victory_for_the_republic');
 }
-// Einigkeit - survive on easy without a civil war.
-// Einigkeit und Recht - survive on medium without a civil war.
-// Einigkeit und Recht und Freiheit - survive on hard without a civil war.
+// Einigkeit - победить на легкой сложности без гражданской войны.
+// Einigkeit und Recht - победить на средней сложности без гражданской войны.
+// Einigkeit und Recht und Freiheit - победить на сложной сложности без гражданской войны.
 
-// Einheitsfront - form a united front with the KPD, and win the civil war.
+// Einheitsfront - выступите единым фронтом с КПГ и выиграйте гражданскую войну.
 
-// Volksfront - form a popular front government, and win the civil war.
+// Volksfront - сформируйте правительство народного фронта и выиграйте гражданскую войну.
 
-// Verfassungskoalition - form a Constitutional Coalition.
-// Wirtschaftspolitik - enact an economic plan.
-// Wirtschaftswunder - reduce unemployment below 10% and have a non-negative budget by 1933.
+// Verfassungskoalition - сформировать конституционную коалицию.
+// Wirtschaftspolitik - разработать экономический план.
+// Wirtschaftswunder - снизить безработицу до уровня ниже 10% и иметь профицитный бюджет к 1933 году.
 if (Q.year >= 1932  && Q.unemployed < 8.6 && Q.budget > 0 && Q.inflation < 5) {
     this.achieve('wirtschaftswunder');
 }
-// Bollwerk der Demokratie - resist the Prussian Coup, and win.
+// Bollwerk der Demokratie - сопротивляйтесь прусскому перевороту и победите.
 if (Q.republic_victory && Q.resist_coup) {
     this.achieve('bollwerk_der_demokratie');
 }
-// Der österreichische Gefreiter - deport hitler
-// Volkspartei - form a people's party
-// Hirschfeld - legalize 2 of homosexual rights and trans rights.
+// Der österreichische Gefreiter - депортируйте Гитлера
+// Volkspartei - создать народную партию
+// Hirschfeld - легализовать 2 права гомосексуалистов и трансгендеров.
 if (Q.homosexual_rights >= 2) {
     this.achieve('hirschfeld');
 }
-// Mädchen und Uniform - a woman's place is in the Reichsbanner.
-// Gleichheit - Support and enact reforms for women's rights.
+// Mädchen und Uniform - место женщины в Рейхсбаннере.
+// Gleichheit - Провести реформы в области прав женщин.
 if ((Q.womens_work && Q.womens_rights >= 5) || (Q.abortion_rights && Q.womens_rights >= 3)) {
     this.achieve('equality');
 }
 
-// Sohn seiner Klasse - elect Ernst Thälmann as president or chancellor.
+// Sohn seiner Klasse - избрать Эрнста Тельмана президентом или канцлером.
 if (Q.chancellor == "Thälmann" || Q.president == "Thälmann") {
     this.achieve('sohn_seiner_klasse');
 }
@@ -69,13 +69,13 @@ for (var c of Q.classes) {
     }
 }
 
-// Die Rote Fahne - join the KPD in the May Day march.
-// Mehrheitspartei - form an SPD majority government in the Reichstag.
-// Panik im Mittelstand - have over 50% of New Middle Class support.
+// Die Rote Fahne - присоединяйтесь к КПГ в первомайском шествии.
+// Mehrheitspartei - сформируйте правительство большинства СДПГ в рейхстаге.
+// Panik im Mittelstand - иметь поддержку более 50% у нового среднего класса.
 if (Q.new_middle_spd_normalized && Q.new_middle_spd_normalized >= 50) {
     this.achieve('panik_im_mittelstand');
 }
-// Bauernrevolution - have over 50% rural support.
+// Bauernrevolution - иметь более чем 50% поддержки в сельской местности.
 if (Q.rural_spd_normalized && Q.rural_spd_normalized >= 50) {
     this.achieve('bauernrevolution');
 }
@@ -88,27 +88,27 @@ if (Q.workers_spd_normalized >= 80 && Q.new_middle_spd_normalized <= 20 && Q.old
 if (Q.workers_spd_normalized >= 40 && Q.new_middle_spd_normalized >= 40 && Q.old_middle_spd_normalized >= 40 && Q.rural_spd >= 40) {
     this.achieve('grosse_volkspartei');
 }
-// Räterepublik - begin the transformation to a socialist economy.
+// Räterepublik - начать переход к социалистической экономике.
 if (Q.spd_in_government && ((Q.nationalization_progress >= 2 && Q.economic_democracy >= 3) || (Q.nationalization_progress >= 1 && Q.economic_democracy >= 4))) {
     this.achieve('raterepublik');
 }
-// Polykrise - survive both a fascist coup and a capital strike.
+// Polykrise - пережить как фашистский переворот, так и забастовку капитала.
 if (Q.march_on_berlin_seen && Q.capital_strike_seen && Q.chancellor != "Hitler" && Q.president != "Hitler" && !Q.total_defeat) {
     this.achieve("polykrise");
 }
-// Wirtschaftsexperiment - implement two different economic plans.
+// Wirtschaftsexperiment - реализовать два разных экономических плана.
 if ((Q.nationalization_progress >= 1 && Q.wtb_implemented >= 1) || (Q.wtb_implemented >= 1 && Q.moderate_plan_progress >= 1) || (Q.nationalization_progress >= 1 && Q.moderate_plan_progress >= 1)) {
     this.achieve("wirtschaftsexperiment");
 }
-// Syndikalismus - support factory takeovers by workers.
+// Syndikalismus - поддерживать захваты фабрик рабочими.
 if (Q.factory_takeovers >= 2) {
     this.achieve("syndikalismus");
 }
-// Stolperstein - lose the civil war against Hitler.
+// Stolperstein - проиграть гражданскую войну против Гитлера.
 if ((Q.chancellor_party == "NSDAP" || Q.chancellor == "Hitler" || Q.president == "Hitler") && Q.total_defeat) {
     this.achieve('stolperstein');
 }
-// Heidelberger Programm - fulfill the goals of the Heidelberg programm - increase welfare, reform justice, support women's rights, progressive taxation, works councils, build a European Union.
+// Heidelberger Programm - выполнить цели Гейдельбергской программы - повысить благосостояние, реформировать правосудие, поддерживать права женщин, прогрессивное налогообложение, рабочие советы, создать Европейский союз.
 if ((Q.welfare > 0 && Q.judicial_reform >= 2 && Q.womens_work >= 1 && Q.family_law >= 1 && Q.upper_tax_rates > Q.lower_tax_rates && Q.works_councils > 0 && Q.eu > 0)) {
     this.achieve('heidelberger_programm');
 }
@@ -125,516 +125,516 @@ if ((Q.welfare > 0 && Q.judicial_reform >= 2 && Q.womens_work >= 1 && Q.family_l
 
 @hitler_wins
 view-if: (chancellor == "Hitler" or president == "Hitler") and (total_defeat==1 or civil_war_seen == 0)
-title: Adolf Hitler is in undisputed control over Germany.
+title: Адольф Гитлер имеет абсолютный контроль над Германией.
 tags: endings
 go-to: eg_menu
 
-Adolf Hitler is in undisputed control over Germany. The SPD, along with all of the democratic forces, have failed.
+Адольф Гитлер имеет абсолютный контроль над Германией. СДПГ, как и остальные демократические силы провалились.
 
-[? if civil_war_seen == 1 : At the very least, we fought back. Perhaps our resistance will be celebrated in an impossible-to-forsee future. ?]
+[? if civil_war_seen == 1 : По крайней мере, мы дали отпор. Возможно, в будущем, которое невозможно предвидеть, наше сопротивление прославят. ?]
 
 @war_against_hitler
 view-if: (chancellor == "Hitler" or president == "Hitler") and (long_war == 1)
-title: Adolf Hitler is in power, but we are fighting to stop him.
+title: Адольф Гитлер во власти, но мы сражаемя против него.
 tags: endings
 go-to: eg_menu
 
-Adolf Hitler has taken power in Germany. However, we have rallied the democratic forces of the country against him, and are fighting back. The outcome of this war is uncertain.
+Адольф Гитлер пришел к власти в Германии. Однако мы сплотили демократические силы страны против него и даем отпор. Исход этой войны неясен.
 
 
 @no_hitler
 view-if: chancellor != "Hitler" and president != "Hitler" and president != "Göring" and chancellor_party != "NSDAP"
-title: Hitler does not yet control Germany...
+title: Гитлер не контролирует Германию...
 tags: endings
 go-to: eg_menu
 
-Hitler does not yet control Germany. [? if chancellor == "Papen" : However, Chancellor Papen's authoritarianism and far-right politics are paving the way for Hitler, or someone like him, to take power. ?] [? if chancellor == "Schleicher" : However, Chancellor Schleicher's authoritarianism and scheming is paving the way for Hitler, or someone like him, to take power. ?][? if resist_coup == 1 and republic_victory == 0 and long_war == 0 and coup_victory == 0 : Given our defeat in the Prussian coup, the far-right appears to be ascendant. ?][? if chancellor == "Brüning" : However, Chancellor Brüning's austerity policies and the continuation of the depression are paving the way for Hitler, or someone like him, to take power. ?]
+Гитлер не контролирует Германию. [? if chancellor == "Papen" : Однако авторитаризм канцлера Папена и ультраправая политика прокладывают путь к власти Гитлеру или кому-то подобному ему. ?] [? if chancellor == "Schleicher" : Однако авторитаризм и интриги канцлера Шляйхера прокладывают путь к власти Гитлеру или кому-то подобному ему. ?][? if resist_coup == 1 and republic_victory == 0 and long_war == 0 and coup_victory == 0 : Учитывая наше поражение в прусском перевороте, ультраправые, похоже, набирают силу. ?][? if chancellor == "Brüning" : Однако политика жесткой экономии канцлера Брюнинга и продолжение Великой депрессии прокладывают путь к власти Гитлеру или кому-то подобному ему. ?]
 
-[? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
+[? if hitler_deported == 1 : Мы депортировали Гитлера обратно в Австрию. Надеемся, он никогда не вернется. ?]
 
 @nsdap_win
 view-if: chancellor == "Goebbels" or president == "Göring"
-title: Despite the deportation of Hitler, the Nazis have still taken power...
+title: Несмотря на депортацию Гитлера, нацисты все же пришли к власти...
 tags: endings
 go-to: eg_menu
 
-Despite the deportation of Hitler, the NSDAP has somehow still wormed its way into power. [? if long_war == 1 : We are fighting them for control of Germany. ?]
+Несмотря на депортацию Гитлера, НСДАП каким-то образом все же пробилась к власти. [? if long_war == 1 : Мы боремся с ними за контроль над Германией. ?]
 
 
 @civil_war_won
-title: We have won the civil war.
+title: Мы победили в гражданской войне.
 view-if: republic_victory == 1
 tags: endings
 go-to: eg_menu
 
-We have won the civil war against the reactionary forces. Germany will be changed forever, but it is too early to know how.
+Мы выиграли гражданскую войну против реакционных сил. Германия изменится навсегда, но еще слишком рано говорить о том, как это произойдет.
 
 @civil_war_lost
-title: We lost the civil war.
+title: Мы проиграли в гражданской войне.
 view-if: total_defeat == 1
 tags: endings
 go-to: eg_menu
 
-We have lost the civil war. At least it was a quick coup, and ended before Germany could be plunged into total war.
+Мы проиграли гражданскую войну. По крайней мере, это был быстрый государственный переворот, который закончился до того, как Германия оказалась втянутой в тотальную войну.
 
 @long_war
-title: Germany is gripped by civil war.
+title: Германия охвачена гражданской войной.
 view-if: long_war == 1
 tags: endings
 go-to: eg_menu
 
-Germany is currently in the grip of a civil war, a brutal affair that has no obvious end. Thousands of lives have already been extinguished, and it is likely that the war will not stop until Germany's cities are reduced to ruins. 
+В настоящее время Германия охвачена гражданской войной, жестоким конфликтом, который не имеет очевидного конца. Тысячи жизней уже унесены, и вполне вероятно, что война не прекратится до тех пор, пока города Германии не будут превращены в руины. 
 
-[? if is_favorable == 0 : The current conditions are not favorable for us. ?][? if west_relation >= 2: Our cause is popular in the West, but their sclerotic governments are reluctant to send us aid. ?][? if soviet_aid >= 1 : The Soviet Union has aided the Communists, but not the socialists and democrats, in an attempt to shape Germany's future government. ?][? if east_aid >= 1 : Poland and Czechoslovakia have sent some assistance against the fascists. ?]
+[? if is_favorable == 0 : Нынешние условия для нас неблагоприятны. ?][? if west_relation >= 2: Наше дело популярно на Западе, но их склеротические правительства неохотно присылают нам помощь. ?][? if soviet_aid >= 1 : Советский Союз помогает коммунистам, но не социалистам и демократам, в попытке сформировать будущее правительство Германии. ?][? if east_aid >= 1 : Польша и Чехословакия направили некоторую помощь в борьбе с фашистами. ?]
 
 
 @braun_victorious
-title: Otto Braun victorious
+title: Отто Браун избран
 view-if: president == "Braun"
 tags: endings
 go-to: eg_menu
 
-Otto Braun has been elected as President of Germany. He had never desired to be the most powerful man in Germany, but now he is.
+Отто Браун избран президентом Германии. Он никогда не стремился стать самым могущественным человеком в Германии, но теперь он стал им.
 
 @president_schumacher
-title: Kurt Schumacher victorious
+title: Курт Шумахер избран
 view-if: president == "Schumacher"
 tags: endings
 go-to: eg_menu
 
-Kurt Schumacher has been elected as President of Germany. As a young and ambitious SPD member, he will be shaping Germany for years to come.
+Курт Шумахер избран президентом Германии. Как молодой и амбициозный член СДПГ, он будет формировать Германию на долгие годы вперед.
 
 @president_juchacz
-title: Marie Juchacz is President
+title: Мари Юхач президент
 view-if: president == "Juchacz"
 tags: endings
 go-to: eg_menu
 
-Marie Juchacz has been elected as President of Germany. She is the first woman to be elected as the head of state of any republic, and will contribute to shaping Germany for years to come.
+Мари Юхач была избрана президентом Германии. Она является первой женщиной, избранной главой государства в любой республике, и внесет свой вклад в формирование Германии на долгие годы вперед.
 
 @president_einstein
-title: Albert Einstein is President
+title: Альберт Эйнштейн - президент
 view-if: president == "Einstein"
 tags: endings
 go-to: eg_menu
 
-Albert Einstein, possibly the most famous scientist in the world, has been elected as President of Germany. As a German Jew and a pacifist, he is the repudiation of everything the Nazis stood for, and a symbol of a new German Republic that has moved beyond its checkered past.
+Альберт Эйнштейн, возможно, самый известный ученый в мире, был избран президентом Германии. Будучи немецким евреем и пацифистом, он отвергает все, за что выступали нацисты, и является символом новой Немецкой Республики, которая вышла за рамки своего неоднозначного прошлого.
 
 
 
 @spd_victorious
-title: SPD still in government
+title: СДПГ в правительстве
 view-if: spd_in_government == 1 and chancellor_party == "SPD" and total_defeat == 0 and long_war == 0
 tags: endings
 go-to: eg_menu
 
-The SPD is still in government, under Chancellor [+ chancellor +]. Given the circumstances, this is a substantial accomplishment.
+СДПГ все еще находится в правительстве под руководством канцлера [+ chancellor +]. Учитывая сложившиеся обстоятельства, это значительное достижение.
 
 @communist_victory
-title: Communist victory
+title: Коммунисты избраны
 view-if: chancellor_party == "KPD" or president == "Thälmann" and total_defeat == 0 and long_war == 0
 tags: endings
 go-to: eg_menu
 
-The KPD has won power in Germany, with our assistance. They will try to remake Germany in the Soviet image. How much they succeed is yet to be determined.
+КПГ с нашей помощью пришла к власти в Германии. Они попытаются переделать Германию по советскому образцу. Насколько им это удастся, еще предстоит определить.
 
 @works_program
-title: Works program enacted!
+title: Программа общетсвенных работ принята!
 view-if: works_program > 0
 tags: endings
 go-to: eg_menu
 
-Our government has enacted a public works program!
+Наше правительство ввело в действие программу общественных работ!
 
 @unemployment_reduced
-title: Unemployment has been reduced from its peak.
+title: Безработица снизилась по сравнению с ее пиковым уровнем.
 view-if: unemployed <= 20 and unemployed >= 10 and year >= 1930
 tags: endings
 go-to: eg_menu
 
-While still uncomfortably high, unemployment levels are nowhere near their peak. This is a success of our economic policy.
+Несмотря на все еще тревожно высокий уровень безработицы, он еще далек от своего пика. Это является успехом нашей экономической политики.
 
 @unemployment_reduced_2
-title: Unemployment has been successfully reduced!
+title: Безработица была успешно снижена!
 view-if: unemployed < 10 and year >= 1930
 tags: endings
 go-to: eg_menu
 
-Unemployment levels have fallen substantially! This is a success of our economic policy.
+Уровень безработицы существенно снизился! Это успех нашей экономической политики.
 
 
 
 @unemployment_high
-title: Unemployment is still too high.
+title: Безработица все еще слишком высока.
 view-if: unemployed >= 20 and (chancellor != "Hitler" and president != "Hitler") and (total_defeat == 0) and long_war == 0
 tags: endings
 go-to: eg_menu
 
-Unemployment is still at dangerously high levels. Even though Hitler is not in power, the situation is ripe for instability and extremism.
+Безработица по-прежнему находится на опасно высоком уровне. Несмотря на то, что Гитлер не находится у власти, ситуация созрела для нестабильности и экстремизма.
 
 
 @emergency_government
-title: SPD ruling in an emergency government.
+title: СДПГ правит в составе чрезвычайного правительства.
 view-if: in_emergency_government == 1
 tags: endings
 go-to: eg_menu
 
-The SPD is ruling as part of an emergency minority government, led by President [+ president +] and Chancellor [+ chancellor +]. This is a temporary and unstable arrangement, leaving the door open to further authoritarianism.
+СДПГ правит в составе чрезвычайного правительства меньшинства, возглавляемого президентом [+ president +] и канцлером [+ chancellor +]. Это временное и нестабильное соглашение, оставляющее открытой дверь для дальнейшего авторитаризма.
 
 @peoples_party_achieved
-title: The SPD is a "People's Party".
+title: СДПГ стала "Народной Партией".
 view-if: peoples_party == 1
 tags: endings
 go-to: eg_menu
 
-The SPD has been declared a "People's Party", representing all of the people, not just the working class. This policy has many supporters and detractors, and what will become of the party is still unclear.
+СДПГ была объявлена "Народной партией", представляющей весь народ, а не только рабочий класс. У этой политики много сторонников и противников, и что станет с партией, пока неясно.
 
 @nationalization_achieved
-title: Socialization of the economy has commenced.
+title: Началась социализация экономики.
 view-if: nationalization_progress >= 2
 tags: endings
 go-to: eg_menu
 
-As part of our socialist economic plan, we have nationalized a substantial portion of the economy, beginning the transition to actual socialism.
+В рамках нашего социалистического экономического плана мы национализировали значительную часть экономики, начав переход к социализму.
 
 @works_councils
-title: Works councils have more power.
+title: Рабочие Советы получили больше власти.
 view-if: works_councils >= 3
 tags: endings
 go-to: eg_menu
 
-Works councils now have substantially greater influence, giving workers democratic control over their economic lives.
+Рабочие советы теперь обладают значительно большим влиянием, предоставляя работникам демократический контроль над своей экономической жизнью.
 
 @european_union
-title: There is now a European Union!
+title: Создан Европейский Союз!
 view-if: eu = 1
 tags: endings
 go-to: eg_menu
 
-We have helped to form a European Union to bring peace and prosperity to the continent. Time will tell how effective it will be.
+Мы помогли создать Европейский союз, чтобы принести мир и процветание на континент. Время покажет, насколько эффективным это будет.
 
 @achievements
-title: Achievements
+title: Достижения
 view-if: achievement_game_completed == 1
 tags: endings
 go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
-= Completed Achievements in this Playthrough
+= Завершенные достижения в этом прохождении
 
 
-[? if game_achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+[? if game_achievement_eiserne_front : **Eiserne Front** - Сформировать Железный Фронт. ?]
 
-[? if game_achievement_civil_war : **Bürgerkrieg** - enter a long civil war. ?]
+[? if game_achievement_civil_war : **Bürgerkrieg** - Начать затяжную гражданскую войну. ?]
 
-[? if game_achievement_einigkeit : **Einigkeit** - reach the end of the game without a civil war on easy. ?]
+[? if game_achievement_einigkeit : **Einigkeit** - победить на легкой сложности без гражданской войны. ?]
 
-[? if game_achievement_einigkeit_und_recht : **Einigkeit und Recht** - reach the end of the game without a civil war on normal. ?]
+[? if game_achievement_einigkeit_und_recht : **Einigkeit und Recht** - победить на средней сложности без гражданской войны. ?]
 
-[? if game_achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - reach the end of the game without a civil war on hard. ?]
+[? if game_achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - победить на сложной сложности без гражданской войны. ?]
 
-[? if game_achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - reach the end of the game without a civil war on historical mode. ?]
+[? if game_achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - победить на историческом без гражданской войны. ?]
 
-[? if game_achievement_victory_for_the_republic: **Sieg für die Republik** - win the civil war. ?]
+[? if game_achievement_victory_for_the_republic: **Sieg für die Republik** - победить в гражданской войне. ?]
 
-[? if game_achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
+[? if game_achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - сопротивляйтесь прусскому перевороту и победите. ?]
 
-[? if game_achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if game_achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Отто Браун - президент, канцлер и министр-президент Пруссии. ?]
 
-[? if game_achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the SPD and KPD. ?]
+[? if game_achievement_einheitsfront: **Einheitsfront** - Сформировать правительство из СДПГ и КПГ. ?]
 
-[? if game_achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if game_achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Избрать Левый Фронт, что сможет пережить требования КПГ. ?]
 
-[? if game_achievement_volksfront: **Volksfront** - Form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if game_achievement_volksfront: **Volksfront** - Сформировать правительство состоящее из СДПГ, КПГ, ПЦ, и НДП. ?]
 
-[? if game_achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if game_achievement_grosse_volksfront: **Große Volksfront** - Пока Джус является лидером Партии Центра и Примирители лидируют в КПГ, сформируйте правительство, состоящее из СДПГ, КПГ, ПЦ и НДП. ?]
 
-[? if game_achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if game_achievement_volksfront_2: **Sieg für die Volksfront** - Сформировать правительство Народного фронта, которое выполнит требования КПГ. ?]
 
-[? if game_achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
+[? if game_achievement_constitutional_coalition: **Verfassungskoalition** - сформировать "конституционную коалицию". ?]
 
-[? if game_achievement_weimar_coalition: **Weimarer Koalition** - form a Weimar coalition. ?]
+[? if game_achievement_weimar_coalition: **Weimarer Koalition** - сформируйте Веймарскую коалицию. ?]
 
-[? if game_achievement_majority_party: **Mehrheitspartei** - form an SPD-only majority government. ?]
+[? if game_achievement_majority_party: **Mehrheitspartei** - сформируйте правительство большинства СДПГ. ?]
 
-[? if game_achievement_minderheitsregierung: **Minderheitsregierung** - form an SPD minority government. ?]
+[? if game_achievement_minderheitsregierung: **Minderheitsregierung** - сформируйте правительство меньшинства СДПГ. ?]
 
-[? if game_achievement_volkspartei: **Volkspartei** - the SPD is a People's Party. ?]
+[? if game_achievement_volkspartei: **Volkspartei** - СДПГ стало Народной Партией ?]
 
-[? if game_achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if game_achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Эрнст Тельман - либо президент, либо канцлер. ?]
 
-[? if game_achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
+[? if game_achievement_rote_millionar: **Der rote Millionär** - Вилли Мюнценберг - президент. ?]
 
-[? if game_achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if game_achievement_versohnler: **Versöhnler** - сторонники примирения возглавляют КПГ. ?]
 
-[? if game_achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
+[? if game_achievement_deport_hitler : **Der österreichische Gefreite** - депортировать Гитлера. ?]
 
-[? if game_achievement_wirtschaftspolitik: **Wirtschaftspolitik** - enact an economic plan. ?]
+[? if game_achievement_wirtschaftspolitik: **Wirtschaftspolitik** - разработайте экономический план. ?]
 
-[? if game_achievement_wirtschaftswunder: **Wirtschaftswunder** - After 1932, have unemployment less than in 1928, inflation below 5%, and a budget surplus. ?]
+[? if game_achievement_wirtschaftswunder: **Wirtschaftswunder** - После 1932 года безработица должна быть меньше, чем в 1928 году, инфляция ниже 5% и профицит бюджета. ?]
 
-[? if game_achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
+[? if game_achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - принять два разных экономических плана. ?]
 
-[? if game_achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to the end of the game without adopting an economic plan. ?]
+[? if game_achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - доживите до конца игры, не прибегая к экономическому плану. ?]
 
-[? if game_achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
+[? if game_achievement_equality: **Gleichheit** - провести реформы в области прав женщин. ?]
 
-[? if game_achievement_hirschfeld: **Hirschfeld** - pass reforms for homosexual rights. ?]
+[? if game_achievement_hirschfeld: **Hirschfeld** - провести реформы в области прав гомосексуалистов. ?]
 
-[? if game_achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
+[? if game_achievement_women_reichsbanner: **Mädchen in Uniform** - место женщины - в Рейхсбаннере. ?]
 
-[? if game_achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an SPD president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if game_achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - сократите безработицу, приостановите выплаты репараций, расширьте права женщин, изберите президента от СДПГ и депортируйте Гитлера за одно прохождение, по крайней мере, на среднем уровне сложности. ?]
 
-[? if game_achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if game_achievement_die_rote_fahne: **Die Rote Fahne** - присоединяйтесь к КПГ в их первомайском шествии. ?]
 
-[? if game_achievement_panik_im_mittelstand: **Panik im Mittelstand** - SPD new middle class support is at least 50%. ?]
+[? if game_achievement_panik_im_mittelstand: **Panik im Mittelstand** - Поддержка нового среднего класса СДПГ составляет не менее 50%. ?]
 
-[? if game_achievement_bauernrevolution: **Bauernrevolution** - SPD rural support is at least 50%. ?]
+[? if game_achievement_bauernrevolution: **Bauernrevolution** - Поддержка сельских районов со стороны СДПГ составляет не менее 50%. ?]
 
-[? if game_achievement_katholischer_sozialismus: **Katholischer Sozialismus** - SPD Catholic support is at least 50%. ?]
+[? if game_achievement_katholischer_sozialismus: **Katholischer Sozialismus** - Католическая поддержка СДПГ составляет не менее 50%. ?]
 
-[? if game_achievement_grosse_volkspartei: **Große Volkspartei** - All classes have at least 40% SPD support. ?]
+[? if game_achievement_grosse_volkspartei: **Große Volkspartei** - Во всех классах поддержка СДПГ составляет не менее 40%. ?]
 
-[? if game_achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
+[? if game_achievement_klassenkampf: **Klassenkampf** - Поддержка рабочих СДПГ составляет не менее 80%, в то время как средний класс и сельские жители поддерживают ее менее чем на 20%. ?]
 
-[? if game_achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
+[? if game_achievement_raterepublik: **Räterepublik** - начните переход к социалистической экономике. ?]
 
-[? if game_achievement_polykrise: **Polykrise** - survive a capital strike and a fascist coup. ?]
+[? if game_achievement_polykrise: **Polykrise** - пережить забастовку капитала и фашистский переворот. ?]
 
-[? if game_achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
+[? if game_achievement_syndikalismus: **Syndikalismus** - поддержать захваты фабрик рабочими. ?]
 
-[? if game_achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
+[? if game_achievement_drei_pfeile: **Drei Pfeile** - победите государственный переворот без гражданской войны. ?]
 
-[? if game_achievement_ausnahmezustand: **Ausnahmezustand** - use emergency powers to cancel elections. ?]
+[? if game_achievement_ausnahmezustand: **Ausnahmezustand** - используйте чрезвычайные полномочия для отмены выборов. ?]
 
-[? if game_achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
+[? if game_achievement_eu: **Vereinigte Staaten von Europa** - сформировать Европейский Союз ?]
 
-[? if game_achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if game_achievement_heidelberger_programm: **Heidelberger Programm** - выполнить цели Гейдельбергской программы - повысить благосостояние, реформировать правосудие, поддерживать права женщин, прогрессивное налогообложение, рабочие советы, создать Европейский союз. ?]
 
-[? if game_achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
+[? if game_achievement_verfassungsreform: **Verfassungsreform** - принять конституционную поправку. ?]
 
-[? if game_achievement_zeppelin_kapitan : **Zeppelinkapitän** - Hugo Eckener has been elected president. ?]
+[? if game_achievement_zeppelin_kapitan : **Zeppelinkapitän** - Хуго Эккенер был избран президентом. ?]
 
-[? if game_achievement_wahlrechts : **Wahlrechts für Frauen** - Marie Juchacz has been elected president. ?]
+[? if game_achievement_wahlrechts : **Wahlrechts für Frauen** - Мари Юхач была избрана президентом. ?]
 
-[? if game_achievement_bundesrepublik : **Bundesrepublik** - Konrad Adenauer or Kurt Schumacher has been elected president, and constitutional reforms have reduced presidential power. ?]
+[? if game_achievement_bundesrepublik : **Bundesrepublik** - Конрад Аденауэр или Курт Шумахер были избраны президентом, и конституционные реформы сократили президентскую власть. ?]
 
-[? if game_achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Albert Einstein has been elected president. ?]
+[? if game_achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Альберт Эйнштейн был избран президентом. ?]
 
-[? if game_achievement_arbeiter_von_wien : **Arbeiter von Wien** - SDAPÖ victory in Austria. ?]
+[? if game_achievement_arbeiter_von_wien : **Arbeiter von Wien** - Победа СДПА в Австрии. ?]
 
-[? if game_achievement_stolperstein: **Stolperstein** - we lost, but history might memorialize us... ?]
+[? if game_achievement_stolperstein: **Stolperstein** - мы проиграли, но история увековечит нашу память... ?]
 
 
 
-= Completed Achievements Overall
+= Завершенные достижения.
 
 
-[? if achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+[? if game_achievement_eiserne_front : **Eiserne Front** - Сформировать Железный Фронт. ?]
 
-[? if achievement_civil_war : **Bürgerkrieg** - enter a long civil war. ?]
+[? if game_achievement_civil_war : **Bürgerkrieg** - Начать затяжную гражданскую войну. ?]
 
-[? if achievement_einigkeit : **Einigkeit** - reach the end of the game without a civil war on easy. ?]
+[? if game_achievement_einigkeit : **Einigkeit** - победить на легкой сложности без гражданской войны. ?]
 
-[? if achievement_einigkeit_und_recht : **Einigkeit und Recht** - reach the end of the game without a civil war on normal. ?]
+[? if game_achievement_einigkeit_und_recht : **Einigkeit und Recht** - победить на средней сложности без гражданской войны. ?]
 
-[? if achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - reach the end of the game without a civil war on hard. ?]
+[? if game_achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - победить на сложной сложности без гражданской войны. ?]
 
-[? if achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - reach the end of the game without a civil war on historical mode. ?]
+[? if game_achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - победить на историческом без гражданской войны. ?]
 
-[? if achievement_victory_for_the_republic: **Sieg für die Republik** - win the civil war. ?]
+[? if game_achievement_victory_for_the_republic: **Sieg für die Republik** - победить в гражданской войне. ?]
 
-[? if achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
+[? if game_achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - сопротивляйтесь прусскому перевороту и победите. ?]
 
-[? if achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if game_achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Отто Браун - президент, канцлер и министр-президент Пруссии. ?]
 
-[? if achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the SPD and KPD. ?]
+[? if game_achievement_einheitsfront: **Einheitsfront** - Сформировать правительство из СДПГ и КПГ. ?]
 
-[? if achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if game_achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Избрать Левый Фронт, что сможет пережить требования КПГ. ?]
 
-[? if achievement_volksfront: **Volksfront** - Form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if game_achievement_volksfront: **Volksfront** - Сформировать правительство состоящее из СДПГ, КПГ, ПЦ, и НДП. ?]
 
-[? if achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if game_achievement_grosse_volksfront: **Große Volksfront** - Пока Джус является лидером Партии Центра и Примирители лидируют в КПГ, сформируйте правительство, состоящее из СДПГ, КПГ, ПЦ и НДП. ?]
 
-[? if achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if game_achievement_volksfront_2: **Sieg für die Volksfront** - Сформировать правительство Народного фронта, которое выполнит требования КПГ. ?]
 
-[? if achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
+[? if game_achievement_constitutional_coalition: **Verfassungskoalition** - сформировать "конституционную коалицию". ?]
 
-[? if achievement_weimar_coalition: **Weimarer Koalition** - form a Weimar coalition. ?]
+[? if game_achievement_weimar_coalition: **Weimarer Koalition** - сформируйте Веймарскую коалицию. ?]
 
-[? if achievement_majority_party: **Mehrheitspartei** - form an SPD-only majority government. ?]
+[? if game_achievement_majority_party: **Mehrheitspartei** - сформируйте правительство большинства СДПГ. ?]
 
-[? if achievement_minderheitsregierung: **Minderheitsregierung** - form an SPD minority government. ?]
+[? if game_achievement_minderheitsregierung: **Minderheitsregierung** - сформируйте правительство меньшинства СДПГ. ?]
 
-[? if achievement_volkspartei: **Volkspartei** - the SPD is a People's Party. ?]
+[? if game_achievement_volkspartei: **Volkspartei** - СДПГ стало Народной Партией ?]
 
-[? if achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if game_achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Эрнст Тельман - либо президент, либо канцлер. ?]
 
-[? if achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
+[? if game_achievement_rote_millionar: **Der rote Millionär** - Вилли Мюнценберг - президент. ?]
 
-[? if achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if game_achievement_versohnler: **Versöhnler** - сторонники примирения возглавляют КПГ. ?]
 
-[? if achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
+[? if game_achievement_deport_hitler : **Der österreichische Gefreite** - депортировать Гитлера. ?]
 
-[? if achievement_wirtschaftspolitik: **Wirtschaftspolitik** - enact an economic plan. ?]
+[? if game_achievement_wirtschaftspolitik: **Wirtschaftspolitik** - разработайте экономический план. ?]
 
-[? if achievement_wirtschaftswunder: **Wirtschaftswunder** - After 1932, have unemployment less than in 1928, inflation below 5%, and a budget surplus. ?]
+[? if game_achievement_wirtschaftswunder: **Wirtschaftswunder** - После 1932 года безработица должна быть меньше, чем в 1928 году, инфляция ниже 5% и профицит бюджета. ?]
 
-[? if achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
+[? if game_achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - принять два разных экономических плана. ?]
 
-[? if achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to the end of the game without adopting an economic plan. ?]
+[? if game_achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - доживите до конца игры, не прибегая к экономическому плану. ?]
 
-[? if achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
+[? if game_achievement_equality: **Gleichheit** - провести реформы в области прав женщин. ?]
 
-[? if achievement_hirschfeld: **Hirschfeld** - pass reforms for homosexual rights. ?]
+[? if game_achievement_hirschfeld: **Hirschfeld** - провести реформы в области прав гомосексуалистов. ?]
 
-[? if achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
+[? if game_achievement_women_reichsbanner: **Mädchen in Uniform** - место женщины - в Рейхсбаннере. ?]
 
-[? if achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an SPD president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if game_achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - сократите безработицу, приостановите выплаты репараций, расширьте права женщин, изберите президента от СДПГ и депортируйте Гитлера за одно прохождение, по крайней мере, на среднем уровне сложности. ?]
 
-[? if achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if game_achievement_die_rote_fahne: **Die Rote Fahne** - присоединяйтесь к КПГ в их первомайском шествии. ?]
 
-[? if achievement_panik_im_mittelstand: **Panik im Mittelstand** - SPD new middle class support is at least 50%. ?]
+[? if game_achievement_panik_im_mittelstand: **Panik im Mittelstand** - Поддержка нового среднего класса СДПГ составляет не менее 50%. ?]
 
-[? if achievement_bauernrevolution: **Bauernrevolution** - SPD rural support is at least 50%. ?]
+[? if game_achievement_bauernrevolution: **Bauernrevolution** - Поддержка сельских районов со стороны СДПГ составляет не менее 50%. ?]
 
-[? if achievement_katholischer_sozialismus: **Katholischer Sozialismus** - SPD Catholic support is at least 50%. ?]
+[? if game_achievement_katholischer_sozialismus: **Katholischer Sozialismus** - Католическая поддержка СДПГ составляет не менее 50%. ?]
 
-[? if achievement_grosse_volkspartei: **Große Volkspartei** - All classes have at least 40% SPD support. ?]
+[? if game_achievement_grosse_volkspartei: **Große Volkspartei** - Во всех классах поддержка СДПГ составляет не менее 40%. ?]
 
-[? if achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
+[? if game_achievement_klassenkampf: **Klassenkampf** - Поддержка рабочих СДПГ составляет не менее 80%, в то время как средний класс и сельские жители поддерживают ее менее чем на 20%. ?]
 
-[? if achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
+[? if game_achievement_raterepublik: **Räterepublik** - начните переход к социалистической экономике. ?]
 
-[? if achievement_polykrise: **Polykrise** - survive a capital strike and a fascist coup. ?]
+[? if game_achievement_polykrise: **Polykrise** - пережить забастовку капитала и фашистский переворот. ?]
 
-[? if achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
+[? if game_achievement_syndikalismus: **Syndikalismus** - поддержать захваты фабрик рабочими. ?]
 
-[? if achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
+[? if game_achievement_drei_pfeile: **Drei Pfeile** - победите государственный переворот без гражданской войны. ?]
 
-[? if achievement_ausnahmezustand: **Ausnahmezustand** - use emergency powers to cancel elections. ?]
+[? if game_achievement_ausnahmezustand: **Ausnahmezustand** - используйте чрезвычайные полномочия для отмены выборов. ?]
 
-[? if achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
+[? if game_achievement_eu: **Vereinigte Staaten von Europa** - сформировать Европейский Союз ?]
 
-[? if achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if game_achievement_heidelberger_programm: **Heidelberger Programm** - выполнить цели Гейдельбергской программы - повысить благосостояние, реформировать правосудие, поддерживать права женщин, прогрессивное налогообложение, рабочие советы, создать Европейский союз. ?]
 
-[? if achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
+[? if game_achievement_verfassungsreform: **Verfassungsreform** - принять конституционную поправку. ?]
 
-[? if achievement_zeppelin_kapitan : **Zeppelinkapitän** - Hugo Eckener has been elected president. ?]
+[? if game_achievement_zeppelin_kapitan : **Zeppelinkapitän** - Хуго Эккенер был избран президентом. ?]
 
-[? if achievement_wahlrechts : **Wahlrechts für Frauen** - Marie Juchacz has been elected president. ?]
+[? if game_achievement_wahlrechts : **Wahlrechts für Frauen** - Мари Юхач была избрана президентом. ?]
 
-[? if achievement_bundesrepublik : **Bundesrepublik** - Konrad Adenauer or Kurt Schumacher has been elected president, and constitutional reforms have reduced presidential power. ?]
+[? if game_achievement_bundesrepublik : **Bundesrepublik** - Конрад Аденауэр или Курт Шумахер были избраны президентом, и конституционные реформы сократили президентскую власть. ?]
 
-[? if achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Albert Einstein has been elected president. ?]
+[? if game_achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Альберт Эйнштейн был избран президентом. ?]
 
-[? if achievement_arbeiter_von_wien : **Arbeiter von Wien** - SDAPÖ victory in Austria. ?]
+[? if game_achievement_arbeiter_von_wien : **Arbeiter von Wien** - Победа СДПА в Австрии. ?]
 
-[? if achievement_stolperstein: **Stolperstein** - we lost, but history might memorialize us... ?]
+[? if game_achievement_stolperstein: **Stolperstein** - мы проиграли, но история увековечит нашу память... ?]
 
 
-= Incomplete Achievements
+= Незавершенные достижения
 
-[? if not achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+[? if game_achievement_eiserne_front : **Eiserne Front** - Сформировать Железный Фронт. ?]
 
-[? if not achievement_civil_war : **Bürgerkrieg** - enter a long civil war. ?]
+[? if game_achievement_civil_war : **Bürgerkrieg** - Начать затяжную гражданскую войну. ?]
 
-[? if not achievement_einigkeit : **Einigkeit** - reach the end of the game without a civil war on easy. ?]
+[? if game_achievement_einigkeit : **Einigkeit** - победить на легкой сложности без гражданской войны. ?]
 
-[? if not achievement_einigkeit_und_recht : **Einigkeit und Recht** - reach the end of the game without a civil war on normal. ?]
+[? if game_achievement_einigkeit_und_recht : **Einigkeit und Recht** - победить на средней сложности без гражданской войны. ?]
 
-[? if not achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - reach the end of the game without a civil war on hard. ?]
+[? if game_achievement_einigkeit_und_recht_und_freiheit : **Einigkeit und Recht und Freiheit** - победить на сложной сложности без гражданской войны. ?]
 
-[? if not achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - reach the end of the game without a civil war on historical mode. ?]
+[? if game_achievement_schwarz_rot_gold : **Schwarz-Rot-Gold** - победить на историческом без гражданской войны. ?]
 
-[? if not achievement_victory_for_the_republic: **Sieg für die Republik** - win the civil war. ?]
+[? if game_achievement_victory_for_the_republic: **Sieg für die Republik** - победить в гражданской войне. ?]
 
-[? if not achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
+[? if game_achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - сопротивляйтесь прусскому перевороту и победите. ?]
 
-[? if not achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if game_achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Отто Браун - президент, канцлер и министр-президент Пруссии. ?]
 
-[? if not achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the SPD and KPD. ?]
+[? if game_achievement_einheitsfront: **Einheitsfront** - Сформировать правительство из СДПГ и КПГ. ?]
 
-[? if not achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if game_achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Избрать Левый Фронт, что сможет пережить требования КПГ. ?]
 
-[? if not achievement_volksfront: **Volksfront** - Form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if game_achievement_volksfront: **Volksfront** - Сформировать правительство состоящее из СДПГ, КПГ, ПЦ, и НДП. ?]
 
-[? if not achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the SPD, KPD, Z, and DDP. ?]
+[? if game_achievement_grosse_volksfront: **Große Volksfront** - Пока Джус является лидером Партии Центра и Примирители лидируют в КПГ, сформируйте правительство, состоящее из СДПГ, КПГ, ПЦ и НДП. ?]
 
-[? if not achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if game_achievement_volksfront_2: **Sieg für die Volksfront** - Сформировать правительство Народного фронта, которое выполнит требования КПГ. ?]
 
-[? if not achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
+[? if game_achievement_constitutional_coalition: **Verfassungskoalition** - сформировать "конституционную коалицию". ?]
 
-[? if not achievement_weimar_coalition: **Weimarer Koalition** - form a Weimar coalition. ?]
+[? if game_achievement_weimar_coalition: **Weimarer Koalition** - сформируйте Веймарскую коалицию. ?]
 
-[? if not achievement_majority_party: **Mehrheitspartei** - form an SPD-only majority government. ?]
+[? if game_achievement_majority_party: **Mehrheitspartei** - сформируйте правительство большинства СДПГ. ?]
 
-[? if not achievement_minderheitsregierung: **Minderheitsregierung** - form an SPD minority government. ?]
+[? if game_achievement_minderheitsregierung: **Minderheitsregierung** - сформируйте правительство меньшинства СДПГ. ?]
 
-[? if not achievement_volkspartei: **Volkspartei** - the SPD is a People's Party. ?]
+[? if game_achievement_volkspartei: **Volkspartei** - СДПГ стало Народной Партией ?]
 
-[? if not achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if game_achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Эрнст Тельман - либо президент, либо канцлер. ?]
 
-[? if not achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
+[? if game_achievement_rote_millionar: **Der rote Millionär** - Вилли Мюнценберг - президент. ?]
 
-[? if not achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if game_achievement_versohnler: **Versöhnler** - сторонники примирения возглавляют КПГ. ?]
 
-[? if not achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
+[? if game_achievement_deport_hitler : **Der österreichische Gefreite** - депортировать Гитлера. ?]
 
-[? if not achievement_wirtschaftspolitik: **Wirtschaftspolitik** - enact an economic plan. ?]
+[? if game_achievement_wirtschaftspolitik: **Wirtschaftspolitik** - разработайте экономический план. ?]
 
-[? if not achievement_wirtschaftswunder: **Wirtschaftswunder** - After 1932, have unemployment less than in 1928, inflation below 5%, and a budget surplus. ?]
+[? if game_achievement_wirtschaftswunder: **Wirtschaftswunder** - После 1932 года безработица должна быть меньше, чем в 1928 году, инфляция ниже 5% и профицит бюджета. ?]
 
-[? if not achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
+[? if game_achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - принять два разных экономических плана. ?]
 
-[? if not achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to the end of the game without adopting an economic plan. ?]
+[? if game_achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - доживите до конца игры, не прибегая к экономическому плану. ?]
 
-[? if not achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
+[? if game_achievement_equality: **Gleichheit** - провести реформы в области прав женщин. ?]
 
-[? if not achievement_hirschfeld: **Hirschfeld** - pass reforms for homosexual rights. ?]
+[? if game_achievement_hirschfeld: **Hirschfeld** - провести реформы в области прав гомосексуалистов. ?]
 
-[? if not achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
+[? if game_achievement_women_reichsbanner: **Mädchen in Uniform** - место женщины - в Рейхсбаннере. ?]
 
-[? if not achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an SPD president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if game_achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - сократите безработицу, приостановите выплаты репараций, расширьте права женщин, изберите президента от СДПГ и депортируйте Гитлера за одно прохождение, по крайней мере, на среднем уровне сложности. ?]
 
-[? if not achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if game_achievement_die_rote_fahne: **Die Rote Fahne** - присоединяйтесь к КПГ в их первомайском шествии. ?]
 
-[? if not achievement_panik_im_mittelstand: **Panik im Mittelstand** - SPD new middle class support is at least 50%. ?]
+[? if game_achievement_panik_im_mittelstand: **Panik im Mittelstand** - Поддержка нового среднего класса СДПГ составляет не менее 50%. ?]
 
-[? if not achievement_bauernrevolution: **Bauernrevolution** - SPD rural support is at least 50%. ?]
+[? if game_achievement_bauernrevolution: **Bauernrevolution** - Поддержка сельских районов со стороны СДПГ составляет не менее 50%. ?]
 
-[? if not achievement_katholischer_sozialismus: **Katholischer Sozialismus** - SPD Catholic support is at least 50%. ?]
+[? if game_achievement_katholischer_sozialismus: **Katholischer Sozialismus** - Католическая поддержка СДПГ составляет не менее 50%. ?]
 
-[? if not achievement_grosse_volkspartei: **Große Volkspartei** - All classes have at least 40% SPD support. ?]
+[? if game_achievement_grosse_volkspartei: **Große Volkspartei** - Во всех классах поддержка СДПГ составляет не менее 40%. ?]
 
-[? if not achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
+[? if game_achievement_klassenkampf: **Klassenkampf** - Поддержка рабочих СДПГ составляет не менее 80%, в то время как средний класс и сельские жители поддерживают ее менее чем на 20%. ?]
 
-[? if not achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
+[? if game_achievement_raterepublik: **Räterepublik** - начните переход к социалистической экономике. ?]
 
-[? if not achievement_polykrise: **Polykrise** - survive a capital strike and a fascist coup. ?]
+[? if game_achievement_polykrise: **Polykrise** - пережить забастовку капитала и фашистский переворот. ?]
 
-[? if not achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
+[? if game_achievement_syndikalismus: **Syndikalismus** - поддержать захваты фабрик рабочими. ?]
 
-[? if not achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
+[? if game_achievement_drei_pfeile: **Drei Pfeile** - победите государственный переворот без гражданской войны. ?]
 
-[? if not achievement_ausnahmezustand: **Ausnahmezustand** - use emergency powers to cancel elections. ?]
+[? if game_achievement_ausnahmezustand: **Ausnahmezustand** - используйте чрезвычайные полномочия для отмены выборов. ?]
 
-[? if not achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
+[? if game_achievement_eu: **Vereinigte Staaten von Europa** - сформировать Европейский Союз ?]
 
-[? if not achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if game_achievement_heidelberger_programm: **Heidelberger Programm** - выполнить цели Гейдельбергской программы - повысить благосостояние, реформировать правосудие, поддерживать права женщин, прогрессивное налогообложение, рабочие советы, создать Европейский союз. ?]
 
-[? if not achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
+[? if game_achievement_verfassungsreform: **Verfassungsreform** - принять конституционную поправку. ?]
 
-[? if not achievement_zeppelin_kapitan : **Zeppelinkapitän** - Hugo Eckener has been elected president. ?]
+[? if game_achievement_zeppelin_kapitan : **Zeppelinkapitän** - Хуго Эккенер был избран президентом. ?]
 
-[? if not achievement_wahlrechts : **Wahlrechts für Frauen** - Marie Juchacz has been elected president. ?]
+[? if game_achievement_wahlrechts : **Wahlrechts für Frauen** - Мари Юхач была избрана президентом. ?]
 
-[? if not achievement_bundesrepublik : **Bundesrepublik** - Konrad Adenauer or Kurt Schumacher has been elected president, and constitutional reforms have reduced presidential power. ?]
+[? if game_achievement_bundesrepublik : **Bundesrepublik** - Конрад Аденауэр или Курт Шумахер были избраны президентом, и конституционные реформы сократили президентскую власть. ?]
 
-[? if not achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Albert Einstein has been elected president. ?]
+[? if game_achievement_republik_der_wissenschaft : **Republik der Wissenschaft** - Альберт Эйнштейн был избран президентом. ?]
 
-[? if not achievement_arbeiter_von_wien : **Arbeiter von Wien** - SDAPÖ victory in Austria. ?]
+[? if game_achievement_arbeiter_von_wien : **Arbeiter von Wien** - Победа СДПА в Австрии. ?]
 
-[? if not achievement_stolperstein: **Stolperstein** - we lost, but history might memorialize us... ?]
+[? if game_achievement_stolperstein: **Stolperstein** - мы проиграли, но история увековечит нашу память... ?]
 
 
 @end_game
