@@ -3,54 +3,54 @@ new-page: true
 go-to: eg_menu
 on-arrival: {!
 Q.game_over = 1;
-// Достижения:
-// Große Koalition - Сформировать Большую Коалицию.
-// Eiserne Front - Сформировать Железный Фронт.
+// Achievements:
+// Große Koalition - form a grand coalition
+// Eiserne Front - Form the Iron Front.
 this.achieve('game_completed');
 
-// Roter Zar von Preußen - К концу игры Отто Браун должен стать президентом, канцлером, и министром-президентом Пруссии одноврменно.
+// Roter Zar von Preußen - At the end of the game, Otto Braun is president, chancellor, and minister-president of prussia at the same time.
 if (Q.president == 'Braun' && Q.chancellor == 'Braun' && Q.spd_prussia) {
     this.achieve('red_tzar_of_prussia');
 }
-// Bürgerkrieg - Начать затяжную гражданскую войну.
+// Bürgerkrieg - enter a long civil war.
 if (Q.long_war) {
     this.achieve('civil_war');
 }
-// Sieg für die Republik - Победа республики.
+// Sieg für die Republik - victory for the republic
 if (Q.republic_victory) {
     this.achieve('victory_for_the_republic');
 }
-// Einigkeit - победить на легкой сложности без гражданской войны.
-// Einigkeit und Recht - победить на средней сложности без гражданской войны.
-// Einigkeit und Recht und Freiheit - победить на сложной сложности без гражданской войны.
+// Einigkeit - survive on easy without a civil war.
+// Einigkeit und Recht - survive on medium without a civil war.
+// Einigkeit und Recht und Freiheit - survive on hard without a civil war.
 
-// Einheitsfront - выступите единым фронтом с КПГ и выиграйте гражданскую войну.
+// Einheitsfront - form a united front with the KPD, and win the civil war.
 
-// Volksfront - сформируйте правительство народного фронта и выиграйте гражданскую войну.
+// Volksfront - form a popular front government, and win the civil war.
 
-// Verfassungskoalition - сформировать конституционную коалицию.
-// Wirtschaftspolitik - разработать экономический план.
-// Wirtschaftswunder - снизить безработицу до уровня ниже 10% и иметь профицитный бюджет к 1933 году.
+// Verfassungskoalition - form a Constitutional Coalition.
+// Wirtschaftspolitik - enact an economic plan.
+// Wirtschaftswunder - reduce unemployment below 10% and have a non-negative budget by 1933.
 if (Q.year >= 1932  && Q.unemployed < 8.6 && Q.budget > 0 && Q.inflation < 5) {
     this.achieve('wirtschaftswunder');
 }
-// Bollwerk der Demokratie - сопротивляйтесь прусскому перевороту и победите.
+// Bollwerk der Demokratie - resist the Prussian Coup, and win.
 if (Q.republic_victory && Q.resist_coup) {
     this.achieve('bollwerk_der_demokratie');
 }
-// Der österreichische Gefreiter - депортируйте Гитлера
-// Volkspartei - создать народную партию
-// Hirschfeld - легализовать 2 права гомосексуалистов и трансгендеров.
+// Der österreichische Gefreiter - deport hitler
+// Volkspartei - form a people's party
+// Hirschfeld - legalize 2 of homosexual rights and trans rights.
 if (Q.homosexual_rights >= 2) {
     this.achieve('hirschfeld');
 }
-// Mädchen und Uniform - место женщины в Рейхсбаннере.
-// Gleichheit - Провести реформы в области прав женщин.
+// Mädchen und Uniform - a woman's place is in the Reichsbanner.
+// Gleichheit - Support and enact reforms for women's rights.
 if ((Q.womens_work && Q.womens_rights >= 5) || (Q.abortion_rights && Q.womens_rights >= 3)) {
     this.achieve('equality');
 }
 
-// Sohn seiner Klasse - избрать Эрнста Тельмана президентом или канцлером.
+// Sohn seiner Klasse - elect Ernst Thälmann as president or chancellor.
 if (Q.chancellor == "Thälmann" || Q.president == "Thälmann") {
     this.achieve('sohn_seiner_klasse');
 }
@@ -69,13 +69,13 @@ for (var c of Q.classes) {
     }
 }
 
-// Die Rote Fahne - присоединяйтесь к КПГ в первомайском шествии.
-// Mehrheitspartei - сформируйте правительство большинства СДПГ в рейхстаге.
-// Panik im Mittelstand - иметь поддержку более 50% у нового среднего класса.
+// Die Rote Fahne - join the KPD in the May Day march.
+// Mehrheitspartei - form an SPD majority government in the Reichstag.
+// Panik im Mittelstand - have over 50% of New Middle Class support.
 if (Q.new_middle_spd_normalized && Q.new_middle_spd_normalized >= 50) {
     this.achieve('panik_im_mittelstand');
 }
-// Bauernrevolution - иметь более чем 50% поддержки в сельской местности.
+// Bauernrevolution - have over 50% rural support.
 if (Q.rural_spd_normalized && Q.rural_spd_normalized >= 50) {
     this.achieve('bauernrevolution');
 }
@@ -88,27 +88,27 @@ if (Q.workers_spd_normalized >= 80 && Q.new_middle_spd_normalized <= 20 && Q.old
 if (Q.workers_spd_normalized >= 40 && Q.new_middle_spd_normalized >= 40 && Q.old_middle_spd_normalized >= 40 && Q.rural_spd >= 40) {
     this.achieve('grosse_volkspartei');
 }
-// Räterepublik - начать переход к социалистической экономике.
+// Räterepublik - begin the transformation to a socialist economy.
 if (Q.spd_in_government && ((Q.nationalization_progress >= 2 && Q.economic_democracy >= 3) || (Q.nationalization_progress >= 1 && Q.economic_democracy >= 4))) {
     this.achieve('raterepublik');
 }
-// Polykrise - пережить как фашистский переворот, так и забастовку капитала.
+// Polykrise - survive both a fascist coup and a capital strike.
 if (Q.march_on_berlin_seen && Q.capital_strike_seen && Q.chancellor != "Hitler" && Q.president != "Hitler" && !Q.total_defeat) {
     this.achieve("polykrise");
 }
-// Wirtschaftsexperiment - реализовать два разных экономических плана.
+// Wirtschaftsexperiment - implement two different economic plans.
 if ((Q.nationalization_progress >= 1 && Q.wtb_implemented >= 1) || (Q.wtb_implemented >= 1 && Q.moderate_plan_progress >= 1) || (Q.nationalization_progress >= 1 && Q.moderate_plan_progress >= 1)) {
     this.achieve("wirtschaftsexperiment");
 }
-// Syndikalismus - поддерживать захваты фабрик рабочими.
+// Syndikalismus - support factory takeovers by workers.
 if (Q.factory_takeovers >= 2) {
     this.achieve("syndikalismus");
 }
-// Stolperstein - проиграть гражданскую войну против Гитлера.
+// Stolperstein - lose the civil war against Hitler.
 if ((Q.chancellor_party == "NSDAP" || Q.chancellor == "Hitler" || Q.president == "Hitler") && Q.total_defeat) {
     this.achieve('stolperstein');
 }
-// Heidelberger Programm - выполнить цели Гейдельбергской программы - повысить благосостояние, реформировать правосудие, поддерживать права женщин, прогрессивное налогообложение, рабочие советы, создать Европейский союз.
+// Heidelberger Programm - fulfill the goals of the Heidelberg programm - increase welfare, reform justice, support women's rights, progressive taxation, works councils, build a European Union.
 if ((Q.welfare > 0 && Q.judicial_reform >= 2 && Q.womens_work >= 1 && Q.family_law >= 1 && Q.upper_tax_rates > Q.lower_tax_rates && Q.works_councils > 0 && Q.eu > 0)) {
     this.achieve('heidelberger_programm');
 }
@@ -426,7 +426,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 
 
-= Завершенные достижения.
+= Завершенные достижения
 
 
 [? if game_achievement_eiserne_front : **Eiserne Front** - Сформировать Железный Фронт. ?]
