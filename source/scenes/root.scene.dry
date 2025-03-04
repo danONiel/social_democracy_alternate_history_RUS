@@ -10,9 +10,9 @@ go-to: start_menu_2
 
 @start_menu_2
 
-- @start: Start game
-- @election_simulation: Election simulation
-- @credits: Credits
+- @start: Начать игру
+- @election_simulation: Имитация выборов
+- @credits: Ьитры
 - @game_over.achievements
 
 
@@ -533,62 +533,62 @@ Q.march_on_berlin_timer = 0;
 
 
 // all the initial advisors are centrists.
-Q.wels_advisor = 1; // Otto Wels
-Q.muller_advisor = 1; // Hermann Müller
+Q.wels_advisor = 1; // Отто Вельс
+Q.muller_advisor = 1; // Герман Мюллер
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
-Q.crispien_advisor = 0; // Arthur Crispien
-Q.hilferding_advisor = 1; // Rudolf Hilferding
+Q.crispien_advisor = 0; // Артур Криспьен
+Q.hilferding_advisor = 1; // Рудольф Гильфердинг
 
 // left advisors
-Q.sender_advisor = 0; // Toni Sender
-Q.levi_advisor = 0; // Paul Levi
+Q.sender_advisor = 0; // Тони Сендер
+Q.levi_advisor = 0; // Пауль Леви
 Q.levi_dead = 0;
-Q.rosenfeld_advisor = 0; // Kurt Rosenfeld
-Q.seydewitz_advisor = 0; // Max Seydewitz
+Q.rosenfeld_advisor = 0; // Курт Розенфельд
+Q.seydewitz_advisor = 0; // Макс Зейдевиц
 
 // centrist alternate advisors
-Q.pfulf_advisor = 0; // Antonie Pfülf
-Q.breitscheid_advisor = 0; // Rudolf Breitscheid
+Q.pfulf_advisor = 0; // Антони Пюльф
+Q.breitscheid_advisor = 0; // Рудольф Брейтшейд
 
 // Reformist advisors
-Q.severing_advisor = 0; // Carl Severing
-Q.braun_advisor = 0; // Otto Braun
-Q.juchacz_advisor = 0; // Marie Juchacz
-Q.baade_advisor = 0; // Fritz Baade
+Q.severing_advisor = 0; // Карл Зеверинг
+Q.braun_advisor = 0; // Отто Браун
+Q.juchacz_advisor = 0; // Мари Юхач
+Q.baade_advisor = 0; // Фриц Бааде
 
 // Labor advisors
-Q.leipart_advisor = 0; // Theodor Leipart
-Q.aufhauser_advisor = 0; // Siegfried Aufhäuser
-Q.woytinsky_advisor = 0; // Wladimir Woytinsky (post-1930)
-Q.wissell_advisor = 0; // Rudolf Wissell
+Q.leipart_advisor = 0; // Теодор Лейпарт
+Q.aufhauser_advisor = 0; // Зигфрид Ауфхойзер
+Q.woytinsky_advisor = 0; // Владимир Войтинский (post-1930)
+Q.wissell_advisor = 0; // Рудольф Виссел
 
 // Revisionist advisors
-Q.mierendorff_advisor = 0; // Carlo Mierendorf (post-1930)
+Q.mierendorff_advisor = 0; // Карло Мерендорфф (post-1930)
 
-Q.leber_advisor = 0; // Julius Leber (post-1930)
-Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
+Q.leber_advisor = 0; // Юлиус Лебер (post-1930)
+Q.schumacher_advisor = 0; // Курт Шумахер (post-1930)
 
 // Nonfactional advisors
-Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
-Q.radbruch_advisor = 0; // Gustav Radbruch
-Q.stampfer_advisor = 0; // Friedrich Stampfer
+Q.hirschfeld_advisor = 0; // Магнус Хиршфельд
+Q.radbruch_advisor = 0; // Густав Радбрух
+Q.stampfer_advisor = 0; // Фридрих Штампфер
 !}
 set-bg: img/map_2.jpg
 new-page: true
 
-> *"Such a general development cannot be attributed to the false tactics of any single party or to the mistakes of individual leaders. On the contrary, the conduct of individual leaders is determined largely by the sentiments of the people as a whole. It would be erroneous, however, to regard the sentiments of the moment as reflecting the natural make-up and character of the people. They are merely the consequence of the special circumstances which have brought about this profound degradation of the entire nation."*
+> *"Такое общее развитие событий нельзя объяснить ошибочной тактикой какой-либо одной партии или ошибками отдельных лидеров. Напротив, поведение отдельных лидеров в значительной степени определяется настроениями народа в целом."*
 
- - Karl Kautsky, *Hitlerism and Social Democracy*, 1934
+ - Карл Каутский, *Гитлеризм и Социал-Демократия*, 1934
 
-This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
+Это игра в жанре альтернативной истории. Хотя историческая достоверность имеет большое значение, имейте в виду, что это *игра*, и любое расхождение с реальными событиями обязательно должно включать в себя какой-то элемент выдумки. Тем не менее, пожалуйста, сообщите автору, если есть какие-либо вопиющие ошибки.
 
-For more information on the politics and government of the German Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
+Для получения дополнительной информации о политике и правительстве Республики Германия ознакомьтесь со страницей "Библиотека" в верхнем левом углу. Если вы впервые играете в эту игру, настоятельно рекомендуется ознакомиться хотя бы с частью этой информации.
 
-- @1928_easy: Begin (easy difficulty)
-- @1928_main: Begin (normal difficulty)
-- @1928_hard: Begin (hard difficulty)
-- @1928_historical: Begin (historical mode)
+- @1928_easy: Начать (легкая сложность)
+- @1928_main: Начать (средняя сложность)
+- @1928_hard: Начать (сложная задача)
+- @1928_historical: Начать (исторический режим)
 
 @1928_easy
 on-arrival: difficulty = -1; resources = 4; dues = 3; rb_strength = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; budget = 5;
@@ -599,7 +599,7 @@ on-arrival: difficulty = 1; resources = 0; dues = 1; rb_strength = 1000; reformi
 go-to: 1928_main
 
 @1928_historical
-subtitle: Saving, loading, and polls will be disabled. [? if not achievement_game_completed: Not recommended for a first playthrough. ?]
+subtitle: Сохранение, загрузка и опросы будут отключены. [? if not achievement_game_completed: Не рекомендуется для первого прохождения игры. ?]
 on-arrival: {!
 Q.difficulty = 2;
 Q.historical_mode = 1;
@@ -625,8 +625,8 @@ go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 = 1928
 
-It is a bright time for German democracy. After a period of struggle, inflation is finally under control, and the economy is expanding steadily. In foreign policy, we have reached agreements with the Western powers and the Soviet Union that might make genuine peace a reality. 
+Это светлое время для немецкой демократии. После периода борьбы инфляция, наконец, взята под контроль, а экономика стабильно развивается. Во внешней политике мы достигли соглашений с западными державами и Советским Союзом, которые могут сделать подлинный мир реальностью.
 
-Now, the task of Social Democracy is to prepare for the next election. The bourgeois-right government of Wilhelm Marx is unpopular, and we stand to gain. Perhaps the next government will have a socialist majority.
+Теперь задача социал-демократии - подготовиться к следующим выборам. Правобуржуазное правительство Вильгельма Маркса непопулярно, и мы выигрываем. Возможно, в следующем правительстве будет социалистическое большинство.
 
 
