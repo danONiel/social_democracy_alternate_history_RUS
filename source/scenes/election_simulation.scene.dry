@@ -309,11 +309,11 @@ Other: [+ other_r +]
 
 **Potential coalitions:**
 
-Weimar Coalition (SPD + Z + DDP): [+ weimar_coalition +]
+Веймарская Коалиция (СДПГ + ПЦ + НДП): [+ weimar_coalition +]
 
-Grand Coalition (SPD + Z + BVP + DDP + DVP): [+ grand_coalition +]
+Большая Коалиция (СДПГ + ПЦ + БНП + НДП + ННП): [+ grand_coalition +]
 
-Bourgeois Coalition (Z + BVP + DDP + DVP + Others): [+ bourgeois_coalition +]
+Буржуазная Коалиция (ПЦ + БНП + НДП + ННП + Другие): [+ bourgeois_coalition +]
 
-Right-wing Coalition (Z + BVP + DVP + Others + DNVP): [+ right_coalition +]
+Правая Коалиция (ПЦ + БНП + ННП + Другие + НННП): [+ right_coalition +]
 
