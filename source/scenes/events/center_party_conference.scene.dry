@@ -1,11 +1,11 @@
-title: Center Party Conference
-subtitle: The Center Party chooses their new leader...
+title: Съезд Партии Центра
+subtitle: Партия Центра выбирает нового лидераа...
 view-if: year = 1928 and month = 12 and z_party_leader = "Marx"
 max-visits: 1
 tags: event
 new-page: true
 
-= Center Party Conference
+= Съезд Партии Центра
 
 # reference: Evans, Ellen L. “Adam Stegerwald and the Role of the Christian Trade Unions in the Weimar Republic.” The Catholic Historical Review 59, no. 4 (1974): 602–26.
 
@@ -13,28 +13,28 @@ Wilhelm Marx, former Center Party chancellor and presidential candidate, has cho
 
 The consensus candidate on the right is Ludwig Kaas, a Catholic priest who represents the party's traditionalists. On the other hand, there is Joseph Joos, a leader of the Catholic trade unions, who has been more supportive of cooperation with the SPD than most of the Center Party.
 
-- @kaas: The Center Party elects Ludwig Kaas as the party chair.
-- @joos: Influence the Center Party to select Joseph Joos as the party chair.
-- @joos_campaign: We must hold a campaign in support of Joseph Joos as party chair.
+- @kaas: Партия Центра избирает Людвига Кааса председателем партии.
+- @joos: Повлиять на Партию Центра, чтобы она избрала Джозефа Джооса председателем партии.
+- @joos_campaign: Мы должны провести кампанию в поддержку Джозефа Джооса на пост председателя партии.
 
 @kaas
 on-arrival: z_party_leader = "Kaas"; z_relation -= 5
 
-Ludwig Kaas has been selected as the chairman of the Center Party. He seems to represent a rightward turn from Marx, and will preside over a Center Party less inclined to compromise with the left.
+Людвиг Каас был избран председателем Партии Центра. Он, по-видимому, представляет собой правый поворот от Маркса и будет возглавлять партию, теперь менее склонную к компромиссу с левыми.
 
 @joos
-unavailable-subtitle: Our relations are not good enough.
-subtitle: Joos is likely to be friendlier to us than Kaas.
+unavailable-subtitle: Наши отношения недостаточно хороши.
+subtitle: Джоос, скорее всего, отнесется к нам более дружелюбно, чем Каас.
 choose-if: z_relation >= 70
 on-arrival: z_party_leader = "Joos"; catholics_spd += 5; workers_z += 3
 
-With our grassroots connections, we have been able to influence the Center delegates to support Joseph Joos as the new Center chairman. He has long been a friend of the SPD, and will be more inclined to collaborate with us compared to Kaas. He also increases the appeal of the Center Party to the working class.
+Благодаря нашим связям с общественностью мы смогли повлиять на делегатов ПЦ, чтобы они поддержали Джозефа Джооса в качестве нового председателя ПЦ. Он давно является другом СДПГ и будет более склонен сотрудничать с нами, чем Каас. Он также повышает привлекательность Партии Центра для рабочего класса.
 
 @joos_campaign
 choose-if: z_relation >= 62 and resources >= 1 
 view-if: z_relation < 70
-unavailable-subtitle: [? if z_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
-subtitle: -1 resource. Joos is likely to be friendlier to us than Kaas.
+unavailable-subtitle: [? if z_relation <= 62 : Наши отношения недостаточно хороши. ?] [? if resources < 1 : У нас недостаточно ресурсов. ?]
+subtitle: -1 resource. Джоос, скорее всего, отнесется к нам более дружелюбно, чем Каас.
 on-arrival: resources -= 1; z_party_leader = "Joos"; catholics_spd += 5; workers_z += 3
 
-With our grassroots connections as well as a professional campaign, we have been able to influence the Center delegates to support Joseph Joos as the new Center chairman. He has long been a friend of the SPD, and will be more inclined to collaborate with us compared to Kaas. He also increases the appeal of the Center Party to the working class.
+Благодаря нашим связям с общественностью, а также профессиональной кампании, мы смогли повлиять на делегатов ПЦ, чтобы они поддержали Джозефа Джооса в качестве нового председателя ПЦ. Он давно является другом СДПГ и будет более склонен сотрудничать с нами, чем Каас. Он также повышает привлекательность Партии Центра для рабочего класса.
