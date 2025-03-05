@@ -1,24 +1,24 @@
-title: Nazi March in Altona
+title: Марш нацистов в Альтоне
 new-page: true
-subtitle: An SA demonstration, with the potential for violence
+subtitle: Демонстрация Штурмовиков, чреватая насилием
 tags: event
 view-if: year == 1932 and month == 6 and sa_banned == 0 and spd_prussia == 1
 max-visits: 1
 
-= Nazi March in Altona
+= Марш нацистов в Альтоне
 
-The Nazi SA is planning a march through Altona, a working-class neighborhood of Hamburg known for its high working-class population. Altona is a Communist stronghold, and the planned march will almost certainly lead to violent conflict.
+Нацисты планируют марш через Альтону, рабочий район Гамбурга, известный своей высокой численностью рабочего населения. Альтона - оплот коммунистов, и запланированный марш почти наверняка приведет к вооруженному конфликту.
 
-- @ban_march: Ban the march before it starts.
-- @allow_police: Allow the march, with a heavy police presence.
-- @allow_no_police: Allow the march without a police presence.
+- @ban_march: Запретите марш до его начала.
+- @allow_police: Разрешите провести шествие при усиленном присутствии полиции.
+- @allow_no_police: Разрешите провести шествие без присутствия полиции.
 
 @ban_march
 choose-if: judicial_reform >= 2
-unavailable-subtitle: The judiciary would not allow us to ban the protest, because of free speech.
+unavailable-subtitle: Судебная власть не позволила бы нам запретить акцию протеста из-за свободы слова.
 on-arrival: sa_strength -= 10
 
-We have banned the planned protest. The Nazis appeal the ban in the courts in the name of freedom of speech. Thankfully, the judiciary agrees with us that the Nazis' argument is specious.
+Мы запретили запланированную акцию протеста. Нацисты обжаловали запрет в суде во имя свободы слова. К счастью, судебные власти согласны с нами в том, что доводы нацистов неубедительны.
 
 
 @allow_police
@@ -27,17 +27,17 @@ go-to: allow_police_violence if prussian_police_loyalty <= 0.75; allow_police_no
 @allow_police_violence
 on-arrival: strife += 1; sa_strength += 50; kpd_relation -= 8; communist_coalition -= 1
 
-When the march arrives in Altona, they are immediately confronted by an angry crowd of communists and socialists, who throw objects at the Nazis. The police attempt to separate the two groups, to no avail. Gunshots are heard, reportedly from rooftop snipers (whom the police believe are communists). In response, the police fire into the surrounding buildings. Dozens are killed. All turn out to be civilians, and the reported snipers are never found.
+Когда участники марша прибывают в Альтону, они сразу же сталкиваются с разъяренной толпой коммунистов и социалистов, которые бросают предметы в нацистов. Полиция безуспешно пытается разнять две группы. Раздаются выстрелы, предположительно, от снайперов на крышах (которых полиция считает коммунистами). В ответ полиция открывает огонь по окружающим зданиям. Десятки людей убиты. Все они оказываются гражданскими лицами, а снайперы, о которых сообщалось, так и не были найдены.
 
-This incident has been called "Altona Bloody Sunday" in the media. The Communists assail the incompetence of the police, who are supposedly under our command.
+В средствах массовой информации этот инцидент был назван "Кровавым воскресеньем в Альтоне". Коммунисты критикуют некомпетентность полиции, которая якобы находится в нашем подчинении.
 
 @allow_police_no_violence
 on-arrival: sa_strength += 10
 
-When the march arrives in Altona, they are immediately confronted by an angry crowd of communists and socialists, who throw objects at the Nazis. The police attempt to separate the two groups, to no avail. Gunshots are heard, reportedly from rooftop snipers. The police manage to keep their cool, the shots stop, and the march disperses without further violence.
+Когда участники марша прибывают в Альтону, они сразу же сталкиваются с разъяренной толпой коммунистов и социалистов, которые бросают в нацистов различные предметы. Полиция безуспешно пытается разнять две группы. Раздаются выстрелы, предположительно, от снайперов на крыше. Полиции удается сохранять хладнокровие, выстрелы прекращаются, и шествие расходится без дальнейшего насилия.
 
 
 @allow_no_police
 on-arrival: sa_strength += 80; rfb_strength += 50; strife += 1; kpd_relation -= 8; communist_coalition -= 1
 
-When the march arrives in Altona, they are immediately confronted by an angry crowd of communists and socialists, who throw objects at the Nazis. Gunshots are heard, reportedly from rooftop snipers. In response, the SA engage the surrounding crowd and fire at the surrounding buildings. Dozens are killed, mostly civilians. The Nazis recruit off their dead martyrs.
+Когда участники марша прибывают в Альтону, они сразу же сталкиваются с разъяренной толпой коммунистов и социалистов, которые бросают предметы в нацистов. Раздаются выстрелы, предположительно, от снайперов на крышах домов. В ответ нацисты вступают в бой с толпой и открывают огонь по окружающим зданиям. Гибнут десятки людей, в основном мирные жители.  Нацисты запомнят своих людей как мучеников.
