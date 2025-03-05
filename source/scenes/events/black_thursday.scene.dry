@@ -1,5 +1,5 @@
-title: Black Thursday
-subtitle: The great stock market crash...
+title: Черный четверг
+subtitle: Великий крах фондового рынка...
 new-page: true
 on-arrival: black_thursday_seen = 1; workers_kpd += 5; workers_nsdap += 3; new_middle_nsdap += 4; old_middle_nsdap += 5; rural_nsdap += 5; unemployed_nsdap += 5; unemployed += 2; budget -= 1 if budget > 0; dues -= 1 if dues > 2; inflation -= 1; economic_growth -= 1;
 tags: event
@@ -7,19 +7,19 @@ view-if: year = 1929 and month >= 10
 max-visits: 1
 face-image: img/bankrun.jpg
 
-= Black Thursday
+= Черный четверг
 
-The stock market in America has had its biggest crash in history. It is too early to tell what the international effects will be, but it cannot be good. Our economy is already feeling the effects - unemployment will rise even more, and wages will fall. As always, it is the capitalists' crisis, and the workers' burden.
+Фондовый рынок в Америке пережил крупнейший обвал в истории. Еще слишком рано говорить о том, какими будут международные последствия, но это не может быть хорошим результатом. Наша экономика уже ощущает последствия - безработица растёт, а заработная плата падает. Как обычно, это кризис капиталистов но бремя рабочих.
 
 
-- @cap: It is the nature of capitalism...
-- @do_something: We must do something to stop the suffering...
+- @cap: Такова природа капитализма...
+- @do_something: Мы должны что-то сделать, чтобы остановить страдания...
 
 @cap
 
-Perhaps this is simply one of the periodic crises of capitalism. Perhaps this moment will simply pass.
+Возможно, это просто один из периодических кризисов капитализма. Возможно, этот момент просто пройдет.
 
 @do_something
 on-arrival: crisis_urgency += 1
 
-What can we do to staunch the workers' suffering? It is becoming a hotly debated question.
+Что мы можем сделать, чтобы облегчить страдания рабочих? Этот вопрос становится предметом горячих дискуссий.
