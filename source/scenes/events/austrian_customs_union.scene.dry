@@ -1,5 +1,5 @@
-title: Austrian customs union
-subtitle: The Foreign Ministry seeks closer ties to Austria...
+title: Австрийский таможенный союз
+subtitle: Министерство иностранных дел стремится к более тесным связям с Австрией...
 new-page: true
 on-arrival: customs_union_seen = 1
 tags: event
@@ -8,46 +8,46 @@ max-visits: 1
 
 # TODO: this should happen regardless of the current state of the government...
 
-= Austrian Customs Union
+= Австрийский таможенный союз
 
-[? if spd_in_government: The [+ foreign_minister_party +] foreign minister has a proposal for a customs union with Austria. We can either accept or reject this agreement. ?]
-[? if not spd_in_government: The government of Chancellor [+ chancellor +] has a proposal for a customs union with Austria. Most likely, this will happen whatever we decide. ?]
+[? if spd_in_government: министр иностранных дел из [+ foreign_minister_party +] предложил соглашение о таможенном союзе с Австрией. Мы можем либо принять, либо отклонить это соглашение. ?]
+[? if not spd_in_government: правительство канцлера [+ chancellor +] предложило соглашение о таможенном союзе с Австрией. Скорее всего, это произойдет, что бы мы ни решили. ?]
 
 
-The nationalist right has long yearned for closer ties with Austria, with the eventual goal of the merger of the two German-speaking countries. A customs union with Austria is the first step towards this goal. Additionally, many believe that a union with Austria would improve our current economic circumstances.
+Правые националисты давно мечтают о более тесных связях с Австрией, конечной целью которых является объединение двух немецкоговорящих стран. Таможенный союз с Австрией является первым шагом на пути к этой цели. Кроме того, многие считают, что союз с Австрией улучшил бы наши текущие экономические условия.
 
-However, the Allies, especially France, are likely to object. This agreement would break the terms of the Versailles Treaty, and could lead to economic sanctions, further hurting our economy.
+Однако западные страны, особенно Франция, скорее всего, будут возражать. Это соглашение нарушит условия Версальского договора и может привести к экономическим санкциям, что еще больше ударит по нашей экономике.
 
-- @let_it_happen: Let it happen.
-- @end_coalition: Stop this arrangement!
-- @end_toleration: Attempt to stop this arrangement!
+- @let_it_happen: Пусть это случится.
+- @end_coalition: Остановите это!
+- @end_toleration: Попытайтесь остановить это соглашение!
 
 @let_it_happen
 on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2
 
-The customs union has been formed. Immediately, France and other neighboring countries lodge their protests. The longer-term response is yet to be seen.
+Таможенный союз был создан. Франция и другие соседние страны немедленно заявляют протесты. Долгосрочный отклик пока неизвестен.
 
 @end_coalition
 view-if: spd_in_government = 1
 on-arrival: coalition_dissent += 1; dvp_relation -= 5; z_relation -= 4; z_relation -= 3 if chancellor_party == "Z"; dvp_relation -= 3 if chancellor_party == "Z"
 
-We attempt to impress upon our coalition partners the gravity of the potential Allied response. The proposal is dead, although the DVP and Center are not pleased.
+Мы пытаемся донести до наших партнеров по коалиции серьезность потенциального ответа союзников. Предложение отвергнуто, хотя ННП и ПЦ недовольны.
 
 
 @end_toleration
 view-if: spd_toleration = 1
-subtitle: This is difficult; all of the right-of-center parties support this policy.
+subtitle: Это сложно; все правоцентристские партии поддерживают эту политику.
 go-to: end_toleration_success if spd_r + kpd_r + ddp_r >= 50; end_toleration_fail if spd_r + kpd_r + ddp_r < 50
 
 @end_toleration_success
 on-arrival: time_to_election = 3; spd_in_government = 0; in_grand_coalition = 0; spd_toleration = 0;
 call: set_next_election_time
 
-With the support of the KPD and [+ ddp_name +], we have successfully stopped the formation of the customs union. This results in the fall of the [+ chancellor +] government.
+С поддержкой КПГ и [+ ddp_name +], мы успешно остановили формирование таможенного союза. Это привело к падению правительства Канцлера [+ chancellor +].
 
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
+Были назначены новые выборы на [+ next_election_month : month +] [+ next_election_year +].
 
 @end_toleration_fail
 on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2
 
-Unfortunately, the far-right parties united with the government to outvote us. The customs union will be formed.
+К сожалению, крайне правые партии объединились с правительством, чтобы опередить нас в голосовании. Таможенный союз будет создан.
