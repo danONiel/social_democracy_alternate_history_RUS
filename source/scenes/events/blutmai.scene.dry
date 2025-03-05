@@ -1,67 +1,67 @@
-title: May Day, 1929
+title: Майская демонстрация, 1929
 new-page: true
-subtitle: A Communist demonstration
+subtitle: Коммунистическая демонстрация
 tags: event
 view-if: year = 1929 and month = 5
 max-visits: 1
 face-image: img/redfront.jpg
 
-= May Day, 1929
+= Майская демонстрация, 1929
 
-Tensions run high in Berlin. The Communists are planning a demonstration to commemorate the 10th anniversary of the Spartacist Uprising. No one has forgotten that it was our party members who ordered the uprising's suppression, and the Communists still blame us for the deaths of Rosa Luxemburg and Karl Liebknecht.
+Напряженность в Берлине растет. Коммунисты планируют провести демонстрацию в ознаменование 10-й годовщины спартаковского восстания. Никто не забыл, что именно члены нашей партии отдали приказ о подавлении восстания, и коммунисты до сих пор обвиняют нас в смерти Розы Люксембург и Карла Либкнехта.
 
-Many non-communists are afraid of the possibility of another violent uprising, and our allies in the Prussian coalition are asking the Prussian Interior Ministry to ban the demonstrations.
+Многие некоммунисты опасаются возможности нового насильственного восстания, и наши союзники по прусской коалиции просят министерство внутренних дел Пруссии запретить демонстрации.
 
-- @ban: Ban the demonstrations.
-- @allow_police: Allow the demonstrations to proceed, but maintain a heavy police presence.
-- @allow: Allow the demonstrations to proceed.
-- @join: Join in the demonstrations ourselves.
+- @ban: Запретить демонстрацию.
+- @allow_police: Позвольте демонстрации произойти, но сохраняйте усиленное присутствие полиции.
+- @allow: Позвольте демонстрации произойти.
+- @join: Присоединяйться к демонстрации самим.
 
 @ban
 on-arrival: blutmai = 1; kpd_relation -= 25; z_relation += 5; dvp_relation += 5; workers_spd -= 3; unemployed_spd -= 3; workers_kpd += 3; unemployed_kpd += 3; communist_coalition -= 3; strife += 1
 face-image: img/blutmai.jpg
 
-We issued the order to ban the demonstrations, and sent police to enforce the ban. There was a confrontation between the police and Communists, and violence erupted. Reports say that the Berlin police killed dozens of demonstrators and innocent bystanders. The Communists are already calling this incident *Blutmai*, "Bloody May".
+Мы издали приказ о запрете демонстраций и направили полицию для обеспечения соблюдения запрета. Между полицией и коммунистами произошла стычка, в результате которой вспыхнуло насилие. Согласно сообщениям, берлинская полиция убила десятки демонстрантов и невинных прохожих. Коммунисты уже называют этот инцидент *Blutmai*, "Кровавый май".
 
-This may end any attempt at reconciliation with the KPD, but the Center and People's parties approve of our action.
+Это может положить конец любым попыткам примирения с КПГ, но правоцентристы одобряют наши действия.
 
-- @corrupt_police: It is the fault of corrupt and reactionary elements within the police. Purge those responsible.
-- @communist_fault: It is the fault of the Communists for refusing to follow the rule of law.
-- @no_fault: It is an unfortunate incident that should not have happened, but is no one's fault at all.
+- @corrupt_police: Это вина коррумпированных и реакционных элементов в полиции. Проводите чистку виновных.
+- @communist_fault: Это вина коммунистов из-за того, что они отказываются следовать верховенству закона.
+- @no_fault: Это досадный инцидент, которого не должно было произойти, но в нем нет ничьей вины.
 
 @corrupt_police
 on-arrival: kpd_relation += 10; z_relation -= 2; dvp_relation -= 2; prussian_police_loyalty += 0.05
 
-We arrested the police responsible for the killings, and put them on trial. [? if judicial_reform = 0 : Unfortunately, the reactionary judiciary let them go free with barely any punishment at all. ?]
+Мы арестовали полицейских, ответственных за убийства, и отдали их под суд. [? if judicial_reform = 0 : К сожалению, реакционная судебная система отпустила их на свободу, практически не понеся никакого наказания. ?]
 
-This assuages some of the Communists' outrage, but certainly not all.
+Это отчасти смягчает возмущение коммунистов, но, конечно, не полностью.
 
 @communist_fault
 on-arrival: kpd_relation -= 10; z_relation += 5; dvp_relation += 5; rfb_strength -= 80; rfb_banned = 1
 
-If the KPD continues to act illegally, they must suffer the consequences. Thus, we have banned the RFKB, their paramilitary group. The bourgeois and right-leaning parties approve.
+Если КПГ продолжит действовать незаконно, они должны будут ответить за последствия. Таким образом, мы запретили СКФ, их военизированную группировку. Буржуазные и правые партии одобряют это.
 
 @no_fault
 
-This position gains us no allies, and does not alienate anyone any further.
+Такая позиция не дает нам никаких союзников и никого больше не отталкивает.
 
 
 @allow_police
 on-arrival: kpd_relation += 5; workers_kpd += 5; unemployed_kpd += 5
 
-The demonstration proceeds peacefully under the watchful eyes of the police. Onlookers admire the strength of the Communist workers, and perhaps some of our supporters have been peeled off.
+Демонстрация проходит мирно под бдительным присмотром полиции. Зрители восхищаются силой рабочих-коммунистов, и, возможно, некоторые из наших сторонников тоже.
 
 
 @allow
 on-arrival: workers_kpd += 5; unemployed_kpd += 5; kpd_relation += 10; rfb_strength += 50; z_relation -= 3; dvp_relation -= 3; coalition_dissent += 1; rfb_militancy += 0.1
 
-The demonstration proceeds peacefully, with a minimal police presence. Onlookers admire the strength of the Communist workers, and perhaps some of our members have been peeled off. The KPD will never admit it, but they are developing a less hostile view towards us (even if they do not *like* us yet). Our centrist allies denounce the demonstration, but their cries are ineffectual.
+Демонстрация проходит мирно, с минимальным участием полиции. Зрители восхищаются силой рабочих-коммунистов, и, возможно, некоторые из наших членов тоже. КПГ никогда не признает этого, но они начинают относиться к нам менее враждебно (даже если мы им пока не *нравимся*). Наши союзники-центристы осуждают демонстрацию, но их призывы безрезультатны.
 
 
 @join
 choose-if: kpd_relation >= 45
-unavailable-subtitle: The Communists do not trust us enough.
+unavailable-subtitle: Коммунисты недостаточно доверяют нам.
 on-arrival: kpd_relation += 15; workers_kpd += 5; unemployed_kpd += 5; workers_spd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; z_relation -= 10; dvp_relation -= 10; coalition_dissent += 2; communist_coalition += 2; rfb_strength += 100; rfb_militancy += 0.1; sa_strength += 50; sh_strength += 50
 achievement: die_rote_fahne
 
-It is difficult to persuade the Communists to let us march with them, given the histories of their party and ours. However, they eventually relent. The display of proletarian unity inspires the workers and terrifies the bourgeoisie and middle class. [? if in_grand_coalition : Our coalition partners in the government are outraged at our display with the communists, and are threatening to break up the government. ?] The far-right paramilitaries increase their recruitment to counter us.
+Трудно убедить коммунистов позволить нам идти с ними, учитывая историю их партии и нашей. Однако в конце концов они уступают. Демонстрация пролетарского единства вдохновляет рабочих и приводит в ужас буржуазию и средний класс. [? if in_grand_coalition : Наши партнеры по коалиции в правительстве возмущены нашей демонстрацией солидарности с коммунистами и угрожают распустить правительство. ?] ультраправые военизированные формирования увеличивают свою численность, чтобы противостоять нам.
