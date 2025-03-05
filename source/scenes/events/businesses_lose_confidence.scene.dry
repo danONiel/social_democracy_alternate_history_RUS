@@ -1,37 +1,37 @@
-title: Businesses Lose Confidence
-subtitle: Big businesses are losing confidence in our government's policies.
+title: Бизнес теряет доверие
+subtitle: Крупный бизнес теряет доверие к политике нашего правительства.
 view-if: (capital_strike_progress >= 6 and capital_strike_progress < 10 and budget > -5) and spd_in_government
 new-page: true
 max-visits: 1
 on-arrival: unemployed += 2; new_middle_spd -= 6; old_middle_spd -= 6; rural_spd -= 5; workers_spd -= 4; unemployed_spd -= 4; dvp_relation -= 6; economic_growth -= 1
 tags: event
 
-= Businesses Lose Confidence
+= Бизнес теряет доверие
 
-Because of our government's policies, which are perceived as anti-business, the capitalists are reducing their investment and laying off workers. This has the immediate effect of raising unemployment and dissent against our government, especially among the middle class.
+Из-за политики нашего правительства, которая воспринимается как направленная против бизнеса, капиталисты сокращают свои инвестиции и увольняют работников. Это немедленно приводит к росту безработицы и недовольству нашим правительством, особенно среди среднего класса.
 
-The business community has a variety of suggestions as to how we might improve the business environment.
+У бизнес-сообщества есть множество предложений относительно того, как мы могли бы улучшить бизнес-среду.
 
-- @taxes: Cut taxes for the upper brackets.
-- @welfare: Reduce welfare and social spending.
-- @nothing: We will not take any action for now.
-- @watch: Just watch us. The economy *will* improve.
+- @taxes: Сократите налоги для верхних слоев населения.
+- @welfare: Сократите социальное обеспечение и социальные расходы.
+- @nothing: Пока мы не будем предпринимать никаких действий.
+- @watch: Просто наблюдайте за нами. Экономика *будет* улучшаться.
 
 @taxes
 on-arrival: upper_tax_rates -= 1; budget -= 1; capital_strike_progress -= 1; unemployed -= 1; new_middle_spd += 5*(1-dissent); old_middle_spd += 4*(1-dissent); kpd_coalition_dissent += 1; kpd_relation -= 5; left_dissent += 5
 
-Cutting taxes improves our relationship with the capitalists.
+Снижение налогов улучшает наши отношения с капиталистами.
 
 @welfare
 on-arrival: welfare -= 1; budget += 1; capital_strike_progress -= 2; new_middle_spd += 4*(1-dissent); old_middle_spd += 4*(1-dissent); workers_spd -= 5; unemployed_spd -= 5; unemployed -= 1; left_dissent += 5; labor_dissent += 5; center_dissent += 5; kpd_coalition_dissent += 1; inflation -= 1;
 
-Cutting welfare improves our relationship with the capitalists, but it hurts our working-class base.
+Сокращение социального обеспечения улучшает наши отношения с капиталистами, но вредит нашему рабочему классу.
 
 
 @nothing
 
-Realistically, there is nothing we can do.
+На самом деле, мы ничего не можем сделать.
 
 @watch
 
-Presumably, we have an economic plan that will lead us out of the crisis. The capitalists do not trust us, but we will show them eventually.
+Предположительно, у нас есть экономический план, который выведет нас из кризиса. Капиталисты нам не доверяют, но в конце концов мы им покажем.
