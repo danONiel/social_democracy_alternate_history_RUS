@@ -14,91 +14,91 @@ if (Q.economic_growth) {
 }
 !}
 
-= Status
+= Статус
 
 [+ month : month +] [+ year +]
 
-Resources available: [+ resources +]
+Ресурсов доступно: [+ resources +]
 
-SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
+Позиция СДПГ: [? if spd_toleration : Терпимость ?][? if spd_in_government :  правительстве- ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : Оппозиция ?][? if spd_caretaker : временное правительство ?]
+[? if in_weimar_coalition and spd_in_government: Веймарская Коалиция ?][? if in_grand_coalition and spd_in_government: Большая Коалиция ?][? if in_popular_front and spd_in_government: Народный Фронт ?][? if in_left_front and spd_in_government: Левый Фронт ?][? if in_spd_majority and spd_in_government: правительство большинства ?][? if in_minority_government and spd_in_government: правительство меньшинства ?][? if in_emergency_government and spd_in_government: чрезвычайное правительство ?]
 
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+[? if spd_in_government and not in_spd_majority and not in_left_front : Несогласия в коалиции: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if spd_in_government and (in_left_front or in_popular_front): Несогласия в коалиции с КПГ: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
-Internal dissent: [+ dissent_percent : dissent +]
+Внутренние несогласия: [+ dissent_percent : dissent +]
 
-= Government
+= Правительство
 
-President: [+ president +]
+Президент: [+ president +]
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+Канцлер: [+ chancellor +] ([+ chancellor_party +])
 
-Reichstag composition:
+Состав Рейхстага:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
-[? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
+{!<span class="tooltip-text" title="Социал-Демократическая Партия Германии">СДПГ</span>!}: [+ spd_r +]%
+[? if sapd_formed and sapd_r > 0: СРПГ: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="Партия Центра + Баварская Народная Партия">ПЦ + БНП</span>!}: [+ z_r +]%
 # 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
+{!<span class="tooltip-text" title="Коммунистическая Партия Германии">КПГ</span>!}: [+ kpd_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_r +]%
+{!<span class="tooltip-text" title="Немецкая Демократическая Партия">!}[? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_r +]%
 # 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_r +]%
+{!<span class="tooltip-text" title="Немецкая Народная Партия">ННП</span>!}: [+ dvp_r +]%
 # 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_r +]%
+{!<span class="tooltip-text" title="Немецкая Национальная Народная Партия">НННП</span>!}: [+ dnvp_r +]%
 # 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_r +]%
+{!<span class="tooltip-text" title="Национал-Социалистическая Немецкая Рабочая Партия (Нацисты)">НСДАП</span>!}: [+ nsdap_r +]%
 # 1928: 9, 1930: 10
-Others: [+ other_r +]%
+Другие: [+ other_r +]%
 
-[? if spd_in_government = 1 : Budget: [+ budget +] ?]
+[? if spd_in_government = 1 : Бюджет: [+ budget +] ?]
 
-Next election: [+ next_election_month : month +] [+ next_election_year +]
+Следующие выборы: [+ next_election_month : month +] [+ next_election_year +]
 
-= Economics
+= Экономика
 
-Inflation: [+ inflation_2 +]%
+Инфляция: [+ inflation_2 +]%
 
-[? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
+[? if black_thursday_seen = 1 : Безработица: [+ unemployed_2 +]% ?]
 
-Economic growth: [+ economic_growth_2 +]%
+Экономический рост: [+ economic_growth_2 +]%
 
 
 
-# = Public Opinion
+# = Общественное мнение
 
 @politics
 
-= Inter-party Relations
+= Межпартийные отношения
 
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
+{!<span class="tooltip-text" title="Партия Центра">ПЦ</span>!}: [+ z_relation : relationships +]
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
+{!<span class="tooltip-text" title="Немецкая Демократическая Партия">!}[? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
 
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]
+{!<span class="tooltip-text" title="Немецкая Народная Партия">ННП</span>!}: [+ dvp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
+{!<span class="tooltip-text" title="Коммунистическая Партия Германии">КПГ</span>!}: [+ kpd_relation : relationships +]
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
+{!<span class="tooltip-text" title="Немецкая Нациольная Народная Партия">НННП</span>!}: [+ dnvp_relation : relationships +]
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
+{!<span class="tooltip-text" title="Национал-Социалистическая Немецкая Рабочая Партия (Нацисты)">НСДАП</span>!}: [+ nsdap_relation : relationships +]
 
-= Internal Factions of the SPD
+= Внутренние фракции СДПГ
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="Левые заинтересованы в радикальной, преобразующей политике и сотрудничестве с КПГ.">Левые</span>!} сила: [+ left_strength : strength +], несогласие: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+{!<span class="tooltip-text" title="Центр - это фракция марксистов-центристов, находящихся между реформой и революцией.">Центр</span>!} сила: [+ center_strength : strength +], несогласие: [+ center_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+{!<span class="tooltip-text" title="Цель рабочей фракции - экономическая реформы и предоставление льгот рабочим.">Рабочая</span>!} сила: [+ labor_strength : strength +], несогласие: [+ labor_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+{!<span class="tooltip-text" title="Реформисты являются прагматичными участниками государственного управления и стремятся к расширению государства всеобщего благосостояния и защите демократии.">Реформисты</span>!} сила: [+ reformist_strength : strength +], несогласие: [+ reformist_dissent : dissent +]
 
-[? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
+[? if neorevisionism > 0 : Неоревизионисты сила: [+ neorevisionist_strength : strength +], несогласие: [+ neorevisionist_dissent : dissent +] ?]
 
 
 @paramilitaries
@@ -117,35 +117,35 @@ if (Q.sa_strength) {
 }
 !}
 
-= Paramilitaries
+= Военизированные формирования
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+{!<span class="tooltip-text" title="Рейхсбаннер - популярная организация по защите демократии, в основном связанная с СДПГ.">Рейхсбаннер</span>!} Сила: [+ rb_strength_2 +] тысяч
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+Рейхсбаннера милитаризация: [+ rb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+{!<span class="tooltip-text" title="СКФ (Союз Красных Фронтовиков) это коммунистическая группа, связанная с КПГ.">СКФ</span>!} Сила: [+ rfb_strength_2 +] тысяч
 
-RFB Militarization: [+ rfb_militancy : militancy +]
+Милитаризация СКФ: [+ rfb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+{!<span class="tooltip-text" title="Стальной шлем - это правая организация ветеранов войны, связанная с НННП.">Штальхейм</span>!} Сила: [+ sh_strength_2 +] тысяч
 
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
+Милитаризация Штальхейма: [+ sh_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="Штурмовики (SA) - нацистское военизированное формирование.">SA</span>!} Сила: [+ sa_strength_2 +] тысяч
 
-SA Militarization: [+ sa_militancy : militancy +]
+Милитаризация Штурмовиков: [+ sa_militancy : militancy +]
 
-= Official military/paramilitaries
+= официальные вооруженные силы/военизированные формирования
 
-Reichswehr: [+ reichswehr_strength +] thousand troops.
+Рейхсвер: [+ reichswehr_strength +] тысяч. 
 
-Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
+Лояльность Рейхсвера: [+ reichswehr_loyalty : loyalty +]
 
-Prussian police: [+ prussian_police_strength +] thousand members.
+Прусская полиция: [+ prussian_police_strength +] тысяч. 
 
-Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
+Лояльность Прусской полиции: [+ prussian_police_loyalty : loyalty +]
 
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+[? if spd_in_government : Полиция: [+ interior_police_loyalty : loyalty +] ?]
 
 @polls
 on-arrival: {!
@@ -154,40 +154,40 @@ Q.nationalism_disp = Math.round(Q.nationalism);
 Q.socialism_disp = Math.round(Q.socialism);
 !}
 
-= Projected election results
+= Прогнозируемые результаты выборов
 
-(if the election were to be held now):
+(если бы выборы состоялись сейчас):
 
-SPD: [+ spd_votes +]%
+СДПГ: [+ spd_votes +]%
 
-[? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
+[? if sapd_formed: СРПГ: [+ sapd_votes +]% ?]
 
-Z + BVP: [+ z_votes +]%
+ПЦ + БНП: [+ z_votes +]%
 
-KPD: [+ kpd_votes +]%
+КПГ: [+ kpd_votes +]%
 
-[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
+[? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
 
-DVP: [+ dvp_votes +]%
+ННП: [+ dvp_votes +]%
 
-DNVP: [+ dnvp_votes +]%
+НННП: [+ dnvp_votes +]%
 
-NSDAP: [+ nsdap_votes +]%
+НСДАП: [+ nsdap_votes +]%
 
-Others: [+ other_votes +]%
+Другие: [+ other_votes +]%
 
-**Detailed results for each demographic**
+**Подробные результаты по каждой демографической группе**
 
-Workers: SPD: [+ workers_spd_display +]%, Z: [+ workers_z_display +]%, KPD: [+ workers_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, DVP: [+ workers_dvp_display +]%; DNVP: [+ workers_dnvp_display +]%, NSDAP: [+ workers_nsdap_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Рабочие: СДПГ: [+ workers_spd_display +]%, ПЦ: [+ workers_z_display +]%, КПГ: [+ workers_kpd_display +]%, [? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, ННП: [+ workers_dvp_display +]%; НННП: [+ workers_dnvp_display +]%, НСДАП: [+ workers_nsdap_display +]%, Другие: [+ workers_other_display +]% [? if sapd_formed: СРПГ: [+ workers_sapd_display +]% ?]
 
-New Middle Class: SPD: [+ new_middle_spd_display +]%, Z: [+ new_middle_z_display +]%, KPD: [+ new_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, DVP: [+ new_middle_dvp_display +]%; DNVP: [+ new_middle_dnvp_display +]%, NSDAP: [+ new_middle_nsdap_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+Новый Средний класс: СДПГ: [+ new_middle_spd_display +]%, ПЦ: [+ new_middle_z_display +]%, КПГ: [+ new_middle_kpd_display +]%, [? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, ННП: [+ new_middle_dvp_display +]%; НННП: [+ new_middle_dnvp_display +]%, НСДАП: [+ new_middle_nsdap_display +]%, Другие: [+ new_middle_other_display +]% [? if sapd_formed: СРПГ: [+ new_middle_sapd_display +]% ?]
 
-Old Middle Class: SPD: [+ old_middle_spd_display +]%, Z: [+ old_middle_z_display +]%, KPD: [+ old_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, DVP: [+ old_middle_dvp_display +]%; DNVP: [+ old_middle_dnvp_display +]%, NSDAP: [+ old_middle_nsdap_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Старый Средний класс: СДПГ: [+ old_middle_spd_display +]%, ПЦ: [+ old_middle_z_display +]%, КПГ: [+ old_middle_kpd_display +]%, [? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, ННП: [+ old_middle_dvp_display +]%; НННП: [+ old_middle_dnvp_display +]%, НСДАП: [+ old_middle_nsdap_display +]%, Другие: [+ old_middle_other_display +]% [? if sapd_formed: СРПГ: [+ old_middle_sapd_display +]% ?]
 
-Rural: SPD: [+ rural_spd_display +]%, Z: [+ rural_z_display +]%, KPD: [+ rural_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, DVP: [+ rural_dvp_display +]%; DNVP: [+ rural_dnvp_display +]%, NSDAP: [+ rural_nsdap_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Крестьянство: СДПГ: [+ rural_spd_display +]%, ПЦ: [+ rural_z_display +]%, КПГ: [+ rural_kpd_display +]%, [? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, ННП: [+ rural_dvp_display +]%; НННП: [+ rural_dnvp_display +]%, НСДАП: [+ rural_nsdap_display +]%, Другие: [+ rural_other_display +]% [? if sapd_formed: СРПГ: [+ rural_sapd_display +]% ?]
 
-Unemployed: SPD: [+ unemployed_spd_display +]%, Z: [+ unemployed_z_display +]%, KPD: [+ unemployed_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, DVP: [+ unemployed_dvp_display +]%; DNVP: [+ unemployed_dnvp_display +]%, NSDAP: [+ unemployed_nsdap_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Безработные: СДПГ: [+ unemployed_spd_display +]%, ПЦ: [+ unemployed_z_display +]%, КПГ: [+ unemployed_kpd_display +]%, [? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, ННП: [+ unemployed_dvp_display +]%; НННП: [+ unemployed_dnvp_display +]%, НСДАП: [+ unemployed_nsdap_display +]%, Другие: [+ unemployed_other_display +]% [? if sapd_formed: СРПГ: [+ unemployed_sapd_display +]% ?]
 
-Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD: [+ catholics_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, DVP: [+ catholics_dvp_display +]%; DNVP: [+ catholics_dnvp_display +]%, NSDAP: [+ catholics_nsdap_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Католики: СДПГ: [+ catholics_spd_display +]%, ПЦ: [+ catholics_z_display +]%, КПГ: [+ catholics_kpd_display +]%, [? if not ddp_name: НДП?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, ННП [+ catholics_dvp_display +]%; НННП: [+ catholics_dnvp_display +]%, НСДАП: [+ catholics_nsdap_display +]%, Другие: [+ catholics_other_display +]% [? if sapd_formed: СРПГ: [+ catholics_sapd_display +]% ?]
 
-Support for the Republic: [+ pro_republic_disp +]%
+Поддержка Республики: [+ pro_republic_disp +]%
