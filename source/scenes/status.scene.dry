@@ -94,7 +94,7 @@ if (Q.economic_growth) {
 
 {!<span class="tooltip-text" title="Центр - это фракция марксистов-центристов, находящихся между реформой и революцией.">Центр</span>!} сила: [+ center_strength : strength +], несогласие: [+ center_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Цель рабочей фракции - экономическая реформы и предоставление льгот рабочим.">Рабочая</span>!} сила: [+ labor_strength : strength +], несогласие: [+ labor_dissent : dissent +]
+{!<span class="tooltip-text" title="Цель профсоюзной фракции - экономическая реформы и предоставление льгот рабочим.">Профсоюзные</span>!} сила: [+ labor_strength : strength +], несогласие: [+ labor_dissent : dissent +]
 
 {!<span class="tooltip-text" title="Реформисты являются прагматичными участниками государственного управления и стремятся к расширению государства всеобщего благосостояния и защите демократии.">Реформисты</span>!} сила: [+ reformist_strength : strength +], несогласие: [+ reformist_dissent : dissent +]
 
