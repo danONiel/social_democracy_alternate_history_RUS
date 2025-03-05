@@ -1,51 +1,51 @@
-title: Siegfried Aufhäuser
+title: Зигфрид Ауфхаузер
 is-pinned-card: true
 tags: advisor, reformist
 card-image: img/portraits/AufhäuserSiegfried.jpg
 view-if: aufhauser_advisor = 1
 new-page: true 
 
-= Siegfried Aufhäuser
+= Зигфрид Ауфхаузер
 
-Aufhäuser is a leader of the AfA-Bund, the federation of socialist white-collar trade unions.
+Ауфхауфер является лидером ВФСР, федераци социалистических профсоюзов белых воротничков.
 
 - @white_collar
 - @union_unity
 - @crisis
 - @moderate_economic_plan
-- @root: Return to main
+- @root: Вернуться
 
 @white_collar
-title: Organizing white-collar workers
-subtitle: Improve our standing among the new middle class.
+title: Организовать белые воротнички. 
+subtitle: Укрепить свое положение среди нового среднего класса.
 choose-if: advisor_action_timer <= 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] 
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев осталось до следующего действия советника. ?] 
 on-arrival: advisor_action_timer = 6; new_middle_spd += 6*(1-dissent);
 
-We have increased our organizing among white-collar workers.
+Мы усилили нашу организованность среди белых воротничков.
 
 @union_unity
-title: Union-party coordination
-subtitle: Reduce dissent among the unions.
+title: Координация между профсоюзом и партией
+subtitle: Уменьшить разногласия с профсоюзами.
 choose-if: advisor_action_timer <= 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев осталось до следующего действия советника. ?]
 on-arrival: advisor_action_timer = 6; labor_dissent -= 10;
 
-We have reduced tensions with the Labor faction.
+Мы снизили напряженность в отношениях с профсоюзной фракцией.
 
 @crisis
-title: Addressing the economic crisis
-subtitle: Aufhäuser can help support a left-wing economic program.
+title: Преодоление экономического кризиса
+subtitle: Ауфхаузер может помочь поддержать левую экономическую программу.
 choose-if: advisor_action_timer <= 0 and nationalization_adopted == 0 and black_thursday_seen == 1 and nationalization_support <= 3
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?][? if nationalization_adopted > 0 : We have already adopted the Left plan. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев осталось до следующего действия советника. ?][? if black_thursday_seen == 0 : В настоящее время мы не переживаем экономического кризиса. ?][? if nationalization_adopted > 0 : Мы уже приняли план левых. ?]
 on-arrival: advisor_action_timer = 6; 
 go-to: crisis_program.support_left 
 
 @moderate_economic_plan
-title: Support the reformist economic plan
-subtitle: Aufhäuser can also support a moderate economic plan.
+title: Поддержать реформистский экономический план
+subtitle: Ауфхаузер может поддержать умеренный экономический план.
 choose-if: advisor_action_timer = 0 and moderate_plan_adopted = 0 and black_thursday_seen = 1
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if moderate_economic_plan = 0 : We have already adopted the reformist economic plan. ?] [? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев осталось до следующего действия советника. ?] [? if moderate_economic_plan = 0 : Мы уже приняли план реформистов. ?] [? if black_thursday_seen == 0 : В настоящее время мы не переживаем экономического кризиса. ?]
 on-arrival: advisor_action_timer = 6
 go-to: crisis_program.support_moderate
 
