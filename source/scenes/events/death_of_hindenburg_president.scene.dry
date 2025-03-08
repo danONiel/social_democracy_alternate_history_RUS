@@ -64,14 +64,14 @@ go-to: candidate_menu
 subtitle: -1 resource - После его выдвижения нам все еще предстоит убедить другие партии поддержать его.
 unavailable-subtitle: [? if resources < 1 : -1 resource - Не хватает ресурсов. ?]
 choose-if: resources >= 1
-on-arrival: spd_candidate = "Эккенер"; is_unity_candidate = 1
+on-arrival: spd_candidate = "Eckener"; is_unity_candidate = 1
 go-to: r1_menu
 
 Мы убедили партию в выдвижении единого кандидата от Веймарской коалиции.
 
 
 @adenauer_r1
-on-arrival: spd_candidate = "Аденауэр"; z_relation += 4; Adenauer_bonus -= 2.5 if z_relation < 40; Seldte_bonus += 2.5 if z_relation < 40; is_unity_candidate = 1
+on-arrival: spd_candidate = "Adenauer"; z_relation += 4; Adenauer_bonus -= 2.5 if z_relation < 40; Seldte_bonus += 2.5 if z_relation < 40; is_unity_candidate = 1
 go-to: r1_menu
 
 Мы поддержали кандидатуру Конрада Аденауэра из Партии Центра.
@@ -79,7 +79,7 @@ go-to: r1_menu
 [? if z_relation < 40 : Благодаря нашей поддержке Аденауэра, некоторые из наиболее консервативных частей Баварской народной партии откололись от Партии Центра, переключив свою поддержку на  Зельдте. ?]
 
 @gessler_r1
-on-arrival: spd_candidate = "Гесслер"; ddp_relation += 4; dvp_candidate = "Зельдте" if dvp_relation < 40; is_unity_candidate = 1
+on-arrival: spd_candidate = "Gessler"; ddp_relation += 4; dvp_candidate = "Seldte" if dvp_relation < 40; is_unity_candidate = 1
 go-to: r1_menu
 
 Мы поддержали кандидатуру Отто Гесслера, бывшего независимого члена НДП.
@@ -87,7 +87,7 @@ go-to: r1_menu
 [? if dvp_relation < 40 : Благодаря нашей поддержке Гесслера, поддерживающие его компоненты ННП отделились и теперь переключают свою поддержку на Зельдте. ?]
 
 @thalmann_r1
-view-if: kpd_candidate = "Тельман" 
+view-if: kpd_candidate = "Thalmann" 
 choose-if: kpd_relation >= 50 and reformist_strength < left_strength
 unavailable-subtitle: [? if kpd_relation < 50 : У нас недостаточно хорошие отношения с коммунистами, поэтому они даже не желают принимать нашу поддержку. ?] [? if reformist_strength >= left_strength : Реформистская фракция в состоянии отговорить партию от поддержки этого соглашения. ?]
 
@@ -97,7 +97,7 @@ unavailable-subtitle: [? if kpd_relation < 50 : У нас недостаточн
 - @candidate_menu: Кого еще мы можем поддержать?
 
 @support_thalmann_2
-on-arrival: spd_candidate = "Тельман"; kpd_relation += 5; reformist_dissent += 10; center_dissent += 6; labor_dissent += 5; neorevisionist_dissent += 10; catholics_spd -= 5; new_middle_spd -= 5; old_middle_spd -= 5; rural_spd -= 5; ddp_relation -= 8; dvp_relation -= 15; z_relation -= 10; communist_coalition += 2; is_unity_candidate = 0
+on-arrival: spd_candidate = "Thalmann"; kpd_relation += 5; reformist_dissent += 10; center_dissent += 6; labor_dissent += 5; neorevisionist_dissent += 10; catholics_spd -= 5; new_middle_spd -= 5; old_middle_spd -= 5; rural_spd -= 5; ddp_relation -= 8; dvp_relation -= 15; z_relation -= 10; communist_coalition += 2; is_unity_candidate = 0
 go-to: r1_menu
 
 Мы выдвинули кандидатуру Эрнста Тельмана из КПГ на пост президента.
@@ -105,10 +105,10 @@ go-to: r1_menu
 
 @munzenberg_r1
 subtitle: Поддержка Мюнценберга непопулярна среди реформистов, но в меньшей степени, чем была бы у Тельмана.
-view-if: kpd_candidate = "Мюнценберг" 
+view-if: kpd_candidate = "Munzenberg" 
 choose-if: kpd_relation >= 40 and reformist_strength < left_strength
 unavailable-subtitle: [? if kpd_relation < 40 : У нас недостаточно хорошие отношения с коммунистами, поэтому они даже не желают принимать нашу поддержку. ?] [? if reformist_strength >= left_strength : Реформистская фракция в состоянии отговорить партию от поддержки этого соглашения. ?]
-on-arrival: spd_candidate = "Мюнценберг"; kpd_relation += 5; reformist_dissent += 5; ddp_relation -= 3; dvp_relation -= 5; z_relation -= 5; is_unity_candidate = 0
+on-arrival: spd_candidate = "Munzenberg"; kpd_relation += 5; reformist_dissent += 5; ddp_relation -= 3; dvp_relation -= 5; z_relation -= 5; is_unity_candidate = 0
 go-to: r1_menu
 
 Мы поддержали кандидатуру Вилли Мюнценберга из КПГ.
@@ -118,7 +118,7 @@ go-to: r1_menu
 subtitle: -2 resources.
 unavailable-subtitle: [? if resources < 2 : -2 resources - Не хватает ресурсов. ?][? if braun_campaign != 0 or not spd_prussia : Браун не хочет избираться. ?]
 choose-if: braun_campaign = 0 and spd_prussia and resources >= 2
-on-arrival: spd_candidate = "Браун"; resources -= 2; is_unity_candidate = 0
+on-arrival: spd_candidate = "Braun"; resources -= 2; is_unity_candidate = 0
 go-to: r1_menu
 
 Мы убедили Отто Брауна снова баллотироваться в президенты.
@@ -128,7 +128,7 @@ go-to: r1_menu
 subtitle: -2 resources.
 unavailable-subtitle: [? if resources < 2 : -2 resources - Не хватает ресурсов. ?]
 choose-if: resources >= 2
-on-arrival: spd_candidate = "Шумахер"; resources -= 2; is_unity_candidate = 0
+on-arrival: spd_candidate = "Schumacher"; resources -= 2; is_unity_candidate = 0
 go-to: r1_menu
 
 Мы выдвинули Курта Шумахера в качестве нашего кандидата в президенты.
@@ -139,7 +139,7 @@ subtitle: -2 resources.
 unavailable-subtitle: [? if resources < 2 : -2 resources - Не хватает ресурсов. ?]
 view-if: womens_rights >= 6 and family_law >= 2 and womens_work >= 2 and welfare > 0
 choose-if: resources >= 2
-on-arrival: spd_candidate = "Юхач"; resources -= 2; is_unity_candidate = 0
+on-arrival: spd_candidate = "Juchacz"; resources -= 2; is_unity_candidate = 0
 go-to: r1_menu
 
 Мы выдвинули Мари Юхач в качестве нашего кандидата в президенты, первую женщину, которая когда-либо была выдвинута на этот пост!
@@ -159,7 +159,7 @@ subtitle: Следующий президент должен стать симв
 subtitle: -2 resources
 view-if: science >= 2 and kwg_research >= 1 and (major_curriculum = "scientific" or minor_curriculum = "scientific")
 choose-if: resources >= 2
-on-arrival: spd_candidate = "Энштейн"; ddp_candidate = "Энштейн"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
+on-arrival: spd_candidate = "Einstein"; ddp_candidate = "Einstein"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
 go-to: r1_menu
 
 Альберт Эйнштейн - ученый, лауреат Нобелевской премии, директор Института физики имени Кайзера Вильгельма и международный борец за мир. Он был одним из основателей Немецкой Демократической Партии (преемник которой поддержал бы его на выборах), он также выражает симпатии к социализму.
@@ -172,7 +172,7 @@ go-to: r1_menu
 subtitle: -2 resources - Возможно, он слишком левый для буржуазных партий.
 view-if: kpd_relation >= 50
 choose-if: resources >= 2
-on-arrival: spd_candidate = "Манн"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
+on-arrival: spd_candidate = "Mann"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
 go-to: r1_menu
 
 Генрих Манн - всемирно известный писатель и поэт, который также известен как левый активист. Его политические симпатии связаны с крайне левыми, и он поддерживал революции 1918 и 1919 годов. Он долгое время жил в тени своего более известного брата Томаса Манна.
@@ -182,9 +182,9 @@ go-to: r1_menu
 
 @ossietzky_r1
 view-if: weltbuhne_dropped = 1
-subtitle: -2 resources - He might be too far left for the bourgeois parties.
+subtitle: -2 resources - Возможно, он слишком левый для буржуазных партий.
 choose-if: resources >= 2
-on-arrival: spd_candidate = "Осецкий"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
+on-arrival: spd_candidate = "Ossietzky"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
 go-to: r1_menu
 
 Карл фон Осецки - журналист левого толка, издатель новостного журнала Weltbühne. Он наиболее известен тем, что в 1929 году раскрыл секретную программу перевооружения Германии, которая принесла ему международную известность. На президентских выборах 1932 года он поддержал коммуниста Тельмана.
@@ -207,7 +207,7 @@ view-if: round = 0
 
 # convincing Z to support a unity candidate
 @convince_z_unity
-title: Convince the Center Party to support [+ spd_candidate +].
+title: Убедить Партию Центра поддержать [+ spd_candidate +].
 view-if: (spd_candidate = "Eckener" or spd_candidate = "Gessler") and z_candidate != spd_candidate
 on-arrival: {!
 Q.z_support_braun = 0;
@@ -223,14 +223,14 @@ max-visits: 1
 go-to: z_failed if z_support_braun = 0 or (z_support_braun == 2 and historical_mode); z_success if z_support_braun = 1; z_partial if z_support_braun = 2 and not historical_mode
 
 # use the same supports as the Center Party in 1932
-We implore the Center Party to support [+ spd_candidate +] as a unity candidate against fascism, arguing that together, the Weimar Coalition can defeat the Nazis. [? if z_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
+Мы умоляем Партию Центра поддержать [+ spd_candidate +] в качестве единого кандидата против фашизма, утверждая, что вместе Веймарская коалиция сможет победить нацистов. [? if z_relation >= 50 : Мы также напоминаем им об истории сотрудничества между нашими партиями, начиная с 1918 года. ?]
 
 
 # convincing Z to support an SPD candidate
 @convince_z_spd
-title: Convince the Center Party to support [+ spd_candidate +].
+title: Убедить Партию Центра поддержать [+ spd_candidate +].
 choose-if: spd_votes >= z_votes
-unavailable-subtitle: [? if spd_votes < z_votes: The Center knows that they are more popular than us; they do not see a reason to support our candidate. ?]
+unavailable-subtitle: [? if spd_votes < z_votes: В ПЦ знают, что они более популярны, чем мы, и не видят причин поддерживать нашего кандидата. ?]
 view-if: (spd_candidate = "Braun" or spd_candidate = "Schumacher" or spd_candidate = "Juchacz" or is_cultural_candidate) and z_candidate != spd_candidate
 on-arrival: {!
 Q.z_support_braun = 0;
@@ -255,24 +255,24 @@ if (Q.spd_candidate == "Juchacz") {
 max-visits: 1
 go-to: z_failed if z_support_braun = 0 or (z_support_braun == 2 and historical_mode); z_success if z_support_braun = 1; z_partial if z_support_braun = 2 and not historical_mode
 
-We implore the Center Party to support [+ spd_candidate +]. We attempt to convince them of the necessity for unity in the face of fascism: that if we were divided, we would fall to the Nazis. [? if z_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
+Мы умоляем Центристскую партию поддержать [+ spd_candidate +]. Мы пытаемся убедить их в необходимости единства перед лицом фашизма: если бы мы были разделены, то попали бы в руки нацистов. [? if z_relation >= 50 : Мы также напоминаем им об истории сотрудничества между нашими партиями, начиная с 1918 года. ?]
 
 @z_failed
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
-Unfortunately, the Center Party is not convinced. [? if spd_candidate = "Juchacz" : The Catholics are not impressed with Marie Juchacz. This is in part because she is a woman, in part because she had a divorce. ?]
+К сожалению, Партию Центра это не убедило. [? if spd_candidate = "Juchacz" : Католики не в восторге от Мари Юхач. Это отчасти потому, что она женщина, отчасти потому, что она развелась. ?]
 
 @z_success
 on-arrival: z_candidate = spd_candidate; Seldte_bonus += 2.5 if z_relation < 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
-The Center Party is convinced! They will be supporting [+ spd_candidate +] for the election.
+Партия Центра согласна! Они будут поддерживать [+ spd_candidate +]  на выборах.
 
-[? if z_relation < 40 : Unfortunately, the BVP is breaking with the Center on this election, supporting Seldte of the DNVP instead.  ?]
+[? if z_relation < 40 : К сожалению, БНП порывает с Центром на этих выборах, вместо этого поддерживая Селдте из НННП.  ?]
 
 @z_partial
 
-The Center are not satisfied with our arguments, but they are open to being convinced. They are willing to run a joint campaign if we front the resources.
+Представители Центра не удовлетворены нашими доводами, но они готовы к тому, чтобы их убедили. Они готовы провести совместную кампанию, если у нас будут ресурсы.
 
 - @pay_z: Give them the resources they need.
 - @r1_menu: Forget about the Center.
@@ -284,86 +284,86 @@ subtitle: -2 resources
 on-arrival: resources -= 2; z_candidate = spd_candidate; Seldte_bonus += 2.5 if z_relation < 40 and dnvp_candidate = "Seldte"
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
-With our resources, the Center are convinced to support [+ spd_candidate +]. Konrad Adenauer will drop out of the race.
+Мы убеждены, что с помощью наших ресурсов Центр поддержит [+ spd_candidate +]. Конрад Аденауэр сойдет с дистанции.
 
-[? if z_relation < 40 and dnvp_candidate = "Seldte" : Unfortunately, the BVP is breaking with the Center on this election, supporting Seldte of the DNVP instead.  ?]
+[? if z_relation < 40 and dnvp_candidate = "Seldte" : К сожалению, БНП порывает с Центром на этих выборах, вместо этого поддерживая Селдте из НННП.  ?]
 
 
 @convince_ddp_unity
-title: Convince the [+ ddp_name +] to support [+ spd_candidate +].
+title: Убедить [+ ddp_name +] поддерживать [+ spd_candidate +].
 view-if: (spd_candidate = "Eckener" or spd_candidate = "Adenauer") and ddp_candidate != spd_candidate
 on-arrival: ddp_candidate = spd_candidate if ddp_relation >= 30
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if ddp_candidate = spd_candidate: The [+ ddp_name +] is easily persuaded to support [+ spd_candidate +]! ?]
-[? if ddp_candidate != spd_candidate: Unfortunately, the [+ ddp_name +] is unwilling to support [+ spd_candidate +]. The Weimar Coalition seems to be fracturing. ?]
+[? if ddp_candidate = spd_candidate: [+ ddp_name +] легко убедить поддерживать [+ spd_candidate +]! ?]
+[? if ddp_candidate != spd_candidate: К сожалению, [+ ddp_name +] не желает поддерживать [+ spd_candidate +]. Веймарская коалиция, похоже, распадается. ?]
 
 
 @convince_ddp_spd
-title: Convince the [+ ddp_name +] to support [+ spd_candidate +].
+title: Убедить [+ ddp_name +] поддерживать [+ spd_candidate +].
 view-if: (spd_candidate = "Braun" or spd_candidate = "Schumacher" or spd_candidate = "Juchacz"or is_cultural_candidate) and ddp_candidate != spd_candidate
 on-arrival: ddp_candidate = spd_candidate if ddp_relation >= 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if ddp_candidate = spd_candidate: The [+ ddp_name +] is easily persuaded to support [+ spd_candidate +]! ?]
-[? if ddp_candidate != spd_candidate: Unfortunately, the [+ ddp_name +] is unwilling to support [+ spd_candidate +]. ?]
+[? if ddp_candidate = spd_candidate: [+ ddp_name +] легко убедить поддерживать [+ spd_candidate +]! ?]
+[? if ddp_candidate != spd_candidate: К сожалению, [+ ddp_name +] не желает поддерживать [+ spd_candidate +]. ?]
 
 @convince_kpd_spd
-title: Convince the KPD to support [+ spd_candidate +].
+title: Убедидь КПГ поддержать [+ spd_candidate +].
 view-if: (spd_candidate = "Braun" or spd_candidate = "Schumacher" or spd_candidate = "Juchacz" or is_cultural_candidate) and kpd_candidate != spd_candidate
 choose-if: spd_votes >= kpd_votes
-unavailable-subtitle: The KPD knows that they are more popular than us; they do not see a reason to support our candidate.
+unavailable-subtitle: КПГ знает, что они более популярны, чем мы; они не видят причин поддерживать нашего кандидата.
 max-visits: 1
 
-The KPD is supporting their own candidate, [+ kpd_candidate +]. [? if kpd_relation >= 50 : However, they are willing to be convinced to drop their campaign and support [+ spd_candidate +]; how do we convince them? ?][? if kpd_relation < 50 or kpd_party_leader != "Conciliators" : They do not seem willing to be convinced. ?]
+КПГ поддерживает своего собственного кандидата, [+ kpd_candidate +]. [? if kpd_relation >= 50 : Тем не менее, они хотят, чтобы их убедили отказаться от своей кампании и поддержать [+ spd_candidate +]; как нам убедить их? ?][? if kpd_relation < 50 or kpd_party_leader != "Conciliators" : Похоже, они не желают, чтобы их убеждали. ?]
 
-- @kpd_resources: Use our resources.
-- @kpd_relations: Use our good relations.
-- @r1_menu: Forget about the KPD.
-- @r2_campaigning: Forget about the KPD.
+- @kpd_resources: Используйте наши ресурсы.
+- @kpd_relations: Используйте наши добрые отношения.
+- @r1_menu: Забудьте о КПГ.
+- @r2_campaigning: Забудьте о КПГ.
 
 @kpd_resources
 view-if: kpd_relation >= 50 and not historical_mode
 choose-if: resources >= 3
-subtitle: -3 resources
-unavailable-subtitle: Not enough resources (need 3).
+subtitle: -3 ресурсов
+unavailable-subtitle: Не достаточно ресурсов.
 on-arrival: resources -= 3; kpd_candidate = spd_candidate; sapd_candidate = spd_candidate;
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
-The KPD now endorses [+ spd_candidate +] in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+Теперь КПГ поддерживает[+ spd_candidate +] на президентских выборах! Мы просим их не выражать свою поддержку, чтобы не оттолкнуть буржуазных избирателей.
 
 @kpd_relations
 view-if: kpd_relation >= 60 or (kpd_party_leader == "Conciliators" and kpd_relation >= 45)
-unavailable-subtitle: Our relations are not good enough.
+unavailable-subtitle: Наши отношения недостаточно хороши.
 on-arrival: kpd_candidate = spd_candidate; sapd_candidate = spd_candidate;
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
-The KPD now endorses [+ spd_candidate +] in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+Теперь КПГ поддерживает[+ spd_candidate +] на президентских выборах! Мы просим их не выражать свою поддержку, чтобы не оттолкнуть буржуазных избирателей.
 
 
 @convince_dvp_spd
-title: Convince the DVP to support [+ spd_candidate +].
-unavailable-subtitle: The DVP is not willing to support our candidate.
+title: Убедить ННП поддержать [+ spd_candidate +].
+unavailable-subtitle: ННП не хочет поддерживать нашего кандидата.
 view-if: spd_candidate = "Braun" or spd_candidate = "Schumacher" or spd_candidate = "Juchacz" or is_cultural_candidate
 choose-if: (dvp_relation >= 50 and candidate != "Juchacz") or (dvp_relation >= 60 and candidate = "Juchacz")
 on-arrival: dvp_candidate = spd_candidate
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if dvp_candidate = spd_candidate: Thanks to our good relations, the DVP is persuaded to support [+ spd_candidate +]! ?]
+[? if dvp_candidate = spd_candidate: Благодаря нашим хорошим отношениям, мы убедили ННП поддержать [+ spd_candidate +]! ?]
 
 @convince_dvp_unity
-title: Convince the DVP to support [+ spd_candidate +].
-unavailable-subtitle: The DVP is not willing to support our candidate.
+title: Убедить ННП поддержать [+ spd_candidate +].
+unavailable-subtitle: ННП не хочет поддерживать нашего кандидата..
 view-if: (spd_candidate = "Adenauer" or spd_candidate = "Gessler" or spd_candidate = "Eckener") and dvp_candidate != spd_candidate
 choose-if: dvp_relation >= 40
 on-arrival: dvp_candidate = spd_candidate
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if dvp_candidate = spd_candidate: Thanks to our good relations, and the fact that our candidate is a unity candidate not affiliated with the SPD, the DVP is persuaded to support [+ spd_candidate +]. ?]
+[? if dvp_candidate = spd_candidate: Благодаря нашим хорошим отношениям и тому факту, что наш кандидат является кандидатом от "Веймара", не связанным с СДПГ, ННП удалось убедить поддержать [+ spd_candidate +]. ?]
 
 
 
@@ -375,20 +375,20 @@ set-jump: post_election
 @post_election
 on-arrival: {!
 var candidate_descs = {
-Hitler: "Adolf Hitler of the NSDAP",
-Goring: "Hermann Göring of the NSDAP",
-Seldte: "Franz Seldte of the Stahlhelm/DNVP",
-Eckener: "the independent republican candidate Hugo Eckener",
-Adenauer: "Konrad Adenauer of the Center Party",
-Gessler: "Otto Gessler, independent formerly of the DDP",
-Thalmann: "Ernst Thälmann of the KPD",
-Munzenberg: "Willi Münzenberg of the KPD",
-Braun: "Otto Braun of the SPD",
-Schumacher: "Kurt Schumacher of the SPD",
-Juchacz: "Marie Juchacz of the SPD",
-Einstein: "Albert Einstein, scientist",
-Mann: "Heinrich Mann, writer",
-Ossietzky: "Carl von Ossietzky, journalist"
+Hitler: "Адольф Гитлер из НСДАП",
+Goring: "Герман Геринг из НСДАП",
+Seldte: "Франц Зельдте из НННП",
+Eckener: "независимый республиканский кандидат Хьюго Эккенер",
+Adenauer: "Конрад Аденауэр из Партии Центра",
+Gessler: "Отто Гесслер, независимый, бывший член НДП",
+Thalmann: "Эрнст Тельман из КПГ",
+Munzenberg: "Вилли Мюнценберг из КПГ",
+Braun: "Отто Браун из СДПГ",
+Schumacher: "Курт Шумахер из СДПГ",
+Juchacz: "Мари Юхач из СДПГ",
+Einstein: "Альберт Эйнштейн, ученый",
+Mann: "Генрих Манн, писатель",
+Ossietzky: "Карл фон Осецкий, журналист"
 }
 for (var k in candidate_descs) {
     Q[k + '_running'] = 0;
@@ -437,27 +437,27 @@ go-to: r2_start if round = 1 and not has_majority; election_end if round > 1; r1
 
 Election results:
 
-[? if Hitler_running : Hitler - [+ Hitler_votes_disp +]% ?]
-[? if Goring_running : Göring - [+ Goring_votes_disp +]% ?]
+[? if Hitler_running : Гитлер - [+ Hitler_votes_disp +]% ?]
+[? if Goring_running : Геринг - [+ Goring_votes_disp +]% ?]
 
-[? if Seldte_running : Seldte - [+ Seldte_votes_disp +]% ?]
+[? if Seldte_running : Сельдте - [+ Seldte_votes_disp +]% ?]
 
-[? if Thalmann_running : Thälmann - [+ Thalmann_votes_disp +]% ?]
-[? if Munzenberg_running : Münzenberg - [+ Munzenberg_votes_disp +]% ?]
+[? if Thalmann_running : Тельман - [+ Thalmann_votes_disp +]% ?]
+[? if Munzenberg_running : Мюнценберг - [+ Munzenberg_votes_disp +]% ?]
 
-[? if Adenauer_running : Adenauer - [+ Adenauer_votes_disp +]% ?]
+[? if Adenauer_running : Аденауэр - [+ Adenauer_votes_disp +]% ?]
 
-[? if Gessler_running : Gessler - [+ Gessler_votes_disp +]% ?]
+[? if Gessler_running : Гесслер - [+ Gessler_votes_disp +]% ?]
 
-[? if Eckener_running : Eckener - [+ Eckener_votes_disp +]% ?]
+[? if Eckener_running : Эккенер - [+ Eckener_votes_disp +]% ?]
 
-[? if Braun_running : Braun - [+ Braun_votes_disp +]% ?]
-[? if Schumacher_running : Schumacher - [+ Schumacher_votes_disp +]% ?]
-[? if Juchacz_running : Juchacz - [+ Juchacz_votes_disp +]% ?]
+[? if Braun_running : Браун - [+ Braun_votes_disp +]% ?]
+[? if Schumacher_running : Шумахер - [+ Schumacher_votes_disp +]% ?]
+[? if Juchacz_running : Юхач - [+ Juchacz_votes_disp +]% ?]
 # cultural candidates
-[? if Einstein_running : Einstein - [+ Einstein_votes_disp +]% ?]
-[? if Ossietzky_running : Ossietzky - [+ Ossietzky_votes_disp +]% ?]
-[? if Mann_running : Mann - [+ Mann_votes_disp +]% ?]
+[? if Einstein_running : Энштейн - [+ Einstein_votes_disp +]% ?]
+[? if Ossietzky_running : Осецкий - [+ Ossietzky_votes_disp +]% ?]
+[? if Mann_running : Манн - [+ Mann_votes_disp +]% ?]
 
 @r2_start
 on-arrival: {!
@@ -511,16 +511,16 @@ if (Q.dvp_candidate != Q.spd_candidate && Q.dvp_candidate != Q.ddp_candidate && 
 !}
 go-to: r2_menu
 
-In the lead is [+ winner_desc +]. There is no majority in the first round. In the second round, any candidate who wins a plurality will win overall.
+Лидирует [+ winner_desc +]. В первом туре нет большинства. Во втором туре любой кандидат, набравший наибольшее количество голосов, победит.
 
-[? if dnvp_candidate = "Hitler" : The DNVP and NSDAP have consolidated their electoral efforts, with the DNVP now endorsing Hitler for the second round. Some right-wing voters are uncomfortable with this arrangement, and might not vote. ?]
-[? if dnvp_candidate = "Göring" : The DNVP and NSDAP have consolidated their electoral efforts, with the DNVP now endorsing Göring for the second round. ?]
-[? if nsdap_candidate = "Seldte" : The DNVP and NSDAP have consolidated their electoral efforts, with the NSDAP now endorsing Seldte for the second round. ?]
+[? if dnvp_candidate = "Hitler" : НННП и НСДАП объединили свои усилия на выборах, и НННП теперь поддерживает Гитлера во втором туре. Некоторым избирателям правого толка такой расклад не нравится, и они могут отказаться от участия в голосовании. ?]
+[? if dnvp_candidate = "Göring" : НННП и НСДАП объединили свои усилия на выборах, и НННП теперь поддерживает Геринга во втором туре. ?]
+[? if nsdap_candidate = "Seldte" : НННП и НСДАП объединили свои усилия на выборах, и НСДАП теперь поддерживает Сельдте во втором туре. ?]
 
-[? if gessler_drops_out : The liberal candidate Otto Gessler has dropped out in favor of the Center Party's Konrad Adenauer. This consolidates the votes of the moderate bürgerblock, and attracts some votes from the right-wing minor parties. ?]
-[? if adenauer_drops_out : The Center Party candidate Konrad Adenauer has dropped out in favor of the DStP-DVP candidate Otto Gessler. This consolidates the votes of the moderate bürgerblock, and attracts some votes from the right-wing minor parties. ?]
+[? if gessler_drops_out : Кандидат от либеральной партии Отто Гесслер отказался от участия в выборах в пользу представителя Центристской партии Конрада Аденауэра. Это консолидировало голоса умеренного бюргерского блока и привлекло внимание некоторых правых второстепенных партий. ?]
+[? if adenauer_drops_out : Кандидат от Партии Центра Конрад Аденауэр отказался от участия в выборах в пользу кандидата от либералов Отто Гесслера. Это консолидирует голоса умеренного бюргерблока и привлекает внимание некоторых правых второстепенных партий. ?]
 
-What should we do?
+Что нам следует делать?
 
 @r2_menu
 
@@ -533,75 +533,75 @@ What should we do?
 - @r2_endorse_adenauer
 - @r2_endorse_gessler
 - @r2_endorse_eckener
-- @r2_campaigning: Can we convince any of the parties to change their endorsements?
-- @r2_vote: Let the voting begin.
+- @r2_campaigning: Можем ли мы убедить какую-либо из сторон изменить свою позицию?
+- @r2_vote: Пускай начнётся голосование.
 
 @r2_endorse_thalmann
-title: Switch our support to Thälmann of the KPD.
-subtitle: This will hurt our party's support.
+title: Передайте нашу поддержку Тельману из КПГ.
+subtitle: Это подорвет поддержку нашей партии.
 view-if: spd_candidate != "Thälmann" and kpd_candidate = "Thälmann"
 choose-if: kpd_relation >= 50 and left_strength > reformist_strength
-unavailable-subtitle: [? if kpd_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this bizarre arrangement. ?]
+unavailable-subtitle: [? if kpd_relation < 50 : У нас недостаточно хорошие отношения с коммунистами, поэтому они даже не желают принимать нашу поддержку. ?] [? if reformist_strength >= left_strength : Реформистская фракция в состоянии отговорить партию от поддержки этого странного соглашения. ?]
 on-arrival: reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_spd -= 5; workers_spd -= 3; kpd_relation += 10; communist_coalition += 2; z_relation -= 15; dvp_relation -= 15; ddp_relation -= 12
 on-departure: z_candidate = "Adenauer" if z_candidate = "Braun" or z_candidate = "Schumacher" or z_candidate = "Juchacz"; ddp_candidate = z_candidate if ddp_candidate = "Braun" or ddp_candidate = "Schumacher" or ddp_candidate = "Juchacz"; dvp_candidate = z_candidate if dvp_candidate = "Braun" or dvp_candidate = "Schumacher" or dvp_candidate = "Juchacz"; spd_candidate = "Thälmann"; 
 max-visits: 1
 
-We have switched our endorsement to Ernst Thälmann of the KPD. [? if z_candidate = spd_candidate : Our former allies in the Center Party see this as a betrayal. ?][? if z_candidate = "Braun" or z_candidate = "Schumacher" or z_candidate = "Juchacz": Now, they will support Konrad Adenauer once again. ?][? if ddp_candidate = "Braun" or ddp_candidate = "Schumacher" or ddp_candidate = "Juchacz": The [+ ddp_name +] will switch their support to the Center Party candidate. ?][? if dvp_candidate = "Braun" or dvp_candidate = "Schumacher" or dvp_candidate = "Juchacz": The DVP will also support the Center Party candidate. ?]
+Мы передали нашу поддержку Эрнсту Тельману из КПГ. [? if z_candidate = spd_candidate : Наши бывшие союзники из Партии Центра расценивают это как предательство. ?][? if z_candidate = "Braun" or z_candidate = "Schumacher" or z_candidate = "Juchacz": Теперь они снова поддержат Конрада Аденауэра. ?][? if ddp_candidate = "Braun" or ddp_candidate = "Schumacher" or ddp_candidate = "Juchacz": [+ ddp_name +] переключит свою поддержку на кандидата от Партии Центра. ?][? if dvp_candidate = "Braun" or dvp_candidate = "Schumacher" or dvp_candidate = "Juchacz": ННП также поддержит кандидата от Партии Центра. ?]
 
-- @r2_vote: Let the voting begin.
+- @r2_vote: Пускай начнётся голосование.
 
 @r2_endorse_munzenberg
-title: Switch our support to Münzenberg of the KPD.
-subtitle: This will hurt our party's support.
+title: Передайте нашу поддержку Мюнценбергу из КПГ.
+subtitle: Это подорвет поддержку нашей партии.
 view-if: spd_candidate != "Münzenberg" and kpd_candidate = "Münzenberg"
 choose-if: kpd_relation >= 50 and left_strength > reformist_strength
-unavailable-subtitle: [? if kpd_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this bizarre arrangement. ?]
+unavailable-subtitle: [? if kpd_relation < 50 : У нас недостаточно хорошие отношения с коммунистами, поэтому они даже не желают принимать нашу поддержку. ?] [? if reformist_strength >= left_strength : Реформистская фракция в состоянии отговорить партию от поддержки этого странного соглашения. ?]
 on-arrival: reformist_dissent += 12; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_spd -= 5; workers_spd -= 3; kpd_relation += 10; communist_coalition += 2; z_relation -= 12; ddp_relation -= 10; dvp_relation -= 15; 
 on-departure: z_candidate = "Adenauer" if z_candidate = "Braun" or z_candidate = "Schumacher" or z_candidate = "Juchacz"; ddp_candidate = z_candidate if ddp_candidate = "Braun" or ddp_candidate = "Schumacher" or ddp_candidate = "Juchacz"; dvp_candidate = z_candidate if dvp_candidate = "Braun" or dvp_candidate = "Schumacher" or dvp_candidate = "Juchacz"; spd_candidate = "Münzenberg"; 
 max-visits: 1
 
-We have switched our endorsement to Willi Münzenberg of the KPD. [? if z_candidate = spd_candidate : Our former allies in the Center Party see this as a betrayal. ?][? if z_candidate = "Braun" or z_candidate = "Schumacher" or z_candidate = "Juchacz": Now, they will support Konrad Adenauer once again. ?][? if ddp_candidate = "Braun" or ddp_candidate = "Schumacher" or ddp_candidate = "Juchacz": The [+ ddp_name +] will switch their support to the Center Party candidate. ?][? if dvp_candidate = "Braun" or dvp_candidate = "Schumacher" or dvp_candidate = "Juchacz": The DVP will also support the Center Party candidate. ?]
+Мы передали нашу поддержку Вилли Мюнценбергу из КПГ. [? if z_candidate = spd_candidate : Наши бывшие союзники из Партии Центра расценивают это как предательство. ?][? if z_candidate = "Braun" or z_candidate = "Schumacher" or z_candidate = "Juchacz": Теперь они снова поддержат Конрада Аденауэра. ?][? if ddp_candidate = "Braun" or ddp_candidate = "Schumacher" or ddp_candidate = "Juchacz": [+ ddp_name +] переключит свою поддержку на кандидата от Партии Центра. ?][? if dvp_candidate = "Braun" or dvp_candidate = "Schumacher" or dvp_candidate = "Juchacz": ННП также поддержит кандидата от Партии Центра. ?]
 
-- @r2_vote: Let the voting begin.
+- @r2_vote: Пускай начнётся голосование.
 
 
 @r2_endorse_adenauer
-title: Switch our support to Konrad Adenauer of the Center Party.
+title: Переключите нашу поддержку на Конрада Аденауэра из Партии Центра.
 view-if: z_candidate = "Adenauer" and spd_candidate != z_candidate
 on-departure: kpd_candidate = "Thälmann" if kpd_candidate == spd_candidate and kpd_party_leader != "Conciliators"; kpd_candidate = "Münzenberg" if kpd_candidate == spd_candidate and kpd_party_leader == "Conciliators"; sapd_candidate = kpd_candidate; spd_candidate = "Adenauer"; z_relation += 4; Adenauer_bonus -= 2.5 if z_relation < 40; Seldte_bonus += 2.5 if z_relation < 40; is_unity_candidate = 1
 go-to: r2_campaigning
 
-We have endorsed Konrad Adenauer of the Center Party.
+Мы поддержали кандидатуру Конрада Аденауэра из Партии Центра.
 
-[? if z_relation < 40 : With our support of Adenauer, some of the most conservative parts of the Bavarian People's Party have broken away from the Center Party, shifting their support to the Stahlhelm leader Seldte. ?]
+[? if z_relation < 40 : Благодаря нашей поддержке Аденауэра, некоторые из наиболее консервативных частей Баварской народной партии откололись от центра, переключив свою поддержку на Зельдте. ?]
 
-[? if kpd_candidate = spd_candidate: The KPD is now breaking from our previous coalition and supporting their own candidate. ?]
+[? if kpd_candidate = spd_candidate: КПГ выходит из нашей прежней коалиции и поддерживает своего собственного кандидата. ?]
 
 
 @r2_endorse_gessler
-title: Switch our support to Otto Gessler.
+title: Переключите нашу поддержку на Отто Гесслера.
 view-if: ddp_candidate = "Gessler" and spd_candidate != ddp_candidate
 on-departure: kpd_candidate = "Thälmann" if kpd_candidate == spd_candidate and kpd_party_leader != "Conciliators"; kpd_candidate = "Münzenberg" if kpd_candidate == spd_candidate and kpd_party_leader == "Conciliators"; sapd_candidate = kpd_candidate; spd_candidate = "Gessler"; ddp_relation += 4; dvp_candidate = "Seldte" if dvp_relation < 40; is_unity_candidate = 1
 go-to: r2_campaigning
 
-We have endorsed Otto Gessler, independent formerly of the DDP.
+Мы поддержали кандидатуру Отто Гесслера, который ранее был членом НДП.
 
-[? if dvp_relation < 40 : With our support of Gessler, the DVP components supporting him have broken away and are now shifting their support to Seldte. ?]
+[? if dvp_relation < 40 : Благодаря нашей поддержке Гесслера, поддерживающие его компоненты ННП отделились и теперь переключают свою поддержку на Сельдте. ?]
 
-[? if kpd_candidate = spd_candidate: The KPD is now breaking from our previous coalition and supporting their own candidate. ?]
+[? if kpd_candidate = spd_candidate: КПГ выходит из нашей прежней коалиции и поддерживает своего собственного кандидата. ?]
 
 
 
 @r2_endorse_eckener
-title: Convince the Weimar Coalition parties to unite behind Hugo Eckener.
+title: Убедите партии Веймарской коалиции объединиться вокруг Хуго Эккенера.
 subtitle: -2 resources
-unavailable-subtitle: [? if resources < 2 : -2 resources - Not enough resources. ?]
+unavailable-subtitle: [? if resources < 2 : -2 resources - Не хватает ресурсов. ?]
 choose-if: resources >= 2 and ((z_relation >= 50 and z_leader = "Kaas") or (z_relation >= 30 and z_leader = "Joos")) and ddp_relation >= 40
 view-if: z_candidate = "Adenauer" and ddp_candidate = "Gessler" and spd_candidate != "Eckener"
 on-arrival: kpd_candidate = "Thälmann" if kpd_candidate == spd_candidate and kpd_party_leader != "Conciliators"; kpd_candidate = "Münzenberg" if kpd_candidate == spd_candidate and kpd_party_leader == "Conciliators"; sapd_candidate = kpd_candidate; spd_candidate = "Eckener"; z_candidate = "Eckener"; ddp_candidate = "Eckener"; resources -= 2; is_unity_candidate = 1
 go-to: r2_campaigning
 
-We have successfully united all of the parties of the Weimar Coalition behind Hugo Eckener!
+Мы успешно объединили все партии Веймарской коалиции вокруг Хуго Эккенера!
 
 
 
@@ -615,7 +615,7 @@ view-if: round = 1
 - @convince_dvp_spd
 - @convince_dvp_unity
 - @convince_kpd_spd
-- @r2_vote: Let the voting begin.
+- @r2_vote: Пускай начнётся голосование.
 
 
 
@@ -632,35 +632,35 @@ go-to: election_end
 
 
 @hitler_victory
-on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"
+on-arrival: chancellor = "Гитлер"; chancellor_party = "НСДАП"
 
-With [+ nsdap_candidate +]'s victory, the Nazis waste no time in consolidating power. [? if president = "Göring": His first act is to depose the current chancellor and appoint Hitler as chancellor, first undoing his deportation. ?][? if president = "Hitler": His first act is to depose the current chancellor and appoint himself chancellor, using his stormtroopers to attack any opposition. ?]
+После победы [+ nsdap_candidate +] нацисты, не теряя времени, консолидировали власть.[? if president = "Göring": Его первое действие - сместить нынешнего канцлера и назначить канцлером Гитлера, предварительно отменив его депортацию. ?][? if president = "Hitler": его первое действие - свергнуть нынешнего канцлера и назначить себя канцлером, используя своих штурмовиков для нападения на любую оппозицию. ?]
 
-- @hitler_takes_power: What next?
-- @hitler_constitutional: This is unconstitutional!
+- @hitler_takes_power: Что дальше?
+- @hitler_constitutional: Это противоречит конституции!
 
 @seldte_victory
-on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"
+on-arrival: chancellor = "Гитлер"; chancellor_party = "НСДАП"
 
-With Seldte's victory, the balance of power passes to the Nazis. [? if hitler_deported: His first act is to depose the current chancellor and appoint Adolf Hitler as chancellor, first undoing his deportation. ?][? if not hitler_deported: His first act is to depose the current chancellor and appoint Adolf Hitler as chancellor. ?]
+С победой Зельдте баланс сил переходит к нацистам. [? if hitler_deported: его первым действием стало смещение нынешнего канцлера и назначение Адольфа Гитлера канцлером, сначала отменив его депортацию. ?][? if not hitler_deported: его первым действием стало смещение нынешнего канцлера и назначение Адольфа Гитлера канцлером. ?]
 
-- @hitler_takes_power: What next?
-- @hitler_constitutional: This is blatantly unconstitutional!
+- @hitler_takes_power: Что дальше?
+- @hitler_constitutional: Это противоречит конституции!
 
 @hitler_constitutional
 view-if: presidential_powers
 
-We have passed a constitutional amendment preventing the president from having the power to arbitrarily dismiss a government. To undo this, the far right has called a plebiscite on a new constitutional amendment. Stormtroopers are in the streets, "convincing" voters to support their proposal. Germany is nearing civil war.
+Мы приняли конституционную поправку, лишающую президента права произвольно отправлять в отставку правительство. Чтобы отменить это, ультраправые объявили плебисцит по новой конституционной поправке. Штурмовики вышли на улицы, "убеждая" избирателей поддержать их предложение. Германия близка к гражданской войне.
 
-- @fight: We will fight the fascists in the streets!
-- @defeat_democratic: We can only defeat the fascists through democratic means!
+- @fight: Мы будем сражаться с фашистами на улицах!
+- @defeat_democratic: Мы можем победить фашистов только демократическими средствами!
 
 @fight
 
-Do we realize that this means civil war, against the full force of the state?
+Понимаем ли мы, что это означает гражданскую войну против всей мощи государства?
 
-- @civil_war: Yes.
-- @defeat_democratic: It is not too late to fight constitutionally.
+- @civil_war: Да.
+- @defeat_democratic: Еще не поздно бороться конституционным путем.
 
 @defeat_democratic
 on-arrival: {!
@@ -675,20 +675,20 @@ go-to: ref_win if pro_democracy_votes >= 50; ref_lose if pro_democracy_votes < 5
 @ref_win
 on-arrival: constitutional_crisis = 1
 
-Despite the Nazi threats, supporters of the SPD and the democratic parties refuse to turn out for the referendum, depriving it of the necessary threshold to pass. This is a small victory, as stormtroopers still run rampant in the streets. There is no constitutional path to absolute power, but will that stop the Nazis? 
+Несмотря на угрозы нацистов, сторонники СДПГ и демократической партии отказываются участвовать в референдуме, что лишает их необходимого порога для прохождения. Это небольшая победа, поскольку штурмовики по-прежнему бесчинствуют на улицах. Конституционного пути к абсолютной власти нет, но остановит ли это нацистов?
 
-- @game_over: The ending is yet to be seen...
+- @game_over: Финал еще предстоит увидеть...
 
 @ref_lose
 
-- @hitler_takes_power: What next?
+- @hitler_takes_power: И что теперь?
 
 
 @election_end
 go-to: eckener_win if winner = "Eckener"; juchacz_win if winner = "Juchacz"; bundesrepublik_win if winner = "Schumacher" or winner = "Adenauer"; hitler_victory if winner = "Hitler" or winner = "Göring" or winner = "Goring"; seldte_victory if winner = "Seldte"; munzenberg_victory if winner = "Munzenberg" or winner = "Münzenberg"; thalmann_victory if winner = "Thalmann" or winner = "Thälmann"; nazis_lose if winner = "Braun" or winner = "Gessler"; cultural_victory if winner = "Ossietzky" or winner = "Mann"; einstein_victory if winner = "Einstein"
 on-arrival: president = winner; president = "Thälmann" if president == "Thalmann"; president = "Münzenberg" if president = "Munzenberg"; president = "Göring" if president = "Goring"
 
-The election has been won by [+ winner_desc +].
+На выборах победил [+ winner_desc +].
 
 @thalmann_victory
 go-to: thalmann_democrat if presidential_powers; thalmann_civil_war if not presidential_powers
@@ -698,20 +698,20 @@ on-arrival: kpd_relation = 80
 
 # TODO: depose the chancellor?
 
-Thälmann wastes no time in consolidating power, using all means available to reshape the government. In response, the far-right immediately launches a coup attempt. We have no choice but to unite with the KPD against the fascists...
+Тельман, не теряя времени, консолидирует власть, используя все доступные средства для изменения состава правительства. В ответ ультраправые немедленно предпринимают попытку государственного переворота. У нас нет иного выбора, кроме как объединиться с КПГ против фашистов...
 
-- @civil_war: This is civil war.
+- @civil_war: Это гражданская война.
 
 @thalmann_democrat
 
-Despite the victory of the anti-constitutionalist Thälmann, he appears to be respecting the constitutional constraints on presidential power, at least for now. There is no appetite on the right for a coup at this moment. The bourgeoisie have to live with a communist president, at least for now.
+Несмотря на победу антиконституционалиста Тельмана, он, похоже, соблюдает конституционные ограничения президентской власти, по крайней мере, на данный момент. На данный момент у правых нет желания совершать государственный переворот. Буржуазии приходится мириться с президентом-коммунистом, по крайней мере пока.
 
 
 @munzenberg_victory
 achievement: rote_millionar
 go-to: nazis_lose
 
-The bourgeois and right-wing parties are up in arms about the prospect of a Communist president, although Münzenberg and the KPD conciliators take pains to assure Germany of their commitment to the democratic republic. There is no energy for a coup against the new president. The bourgeoisie will have to live with whatever comes.
+Буржуазные и правые партии настроены враждебно по отношению к перспективе прихода к власти президента-коммуниста, хотя Мюнценберг и сторонники КПГ прилагают все усилия, чтобы заверить Германию в своей приверженности демократической республике. У Германии нет сил для государственного переворота против нового президента. Буржуазии придется смириться с тем, что произойдет.
 
 @eckener_win
 achievement: zeppelin_kapitan
@@ -722,7 +722,7 @@ go-to: nazis_lose
 achievement: wahlrechts
 go-to: nazis_lose
 
-This is a historic victory - Marie Juchacz is the first woman to be elected president in any republic, anywhere in the world.
+Это историческая победа - Мари Юхач - первая женщина, избранная президентом в любой республике, в любой точке мира.
 
 @einstein_victory
 achievement: republik_der_wissenschaft
@@ -742,4 +742,4 @@ go-to: nazis_lose
 
 @nazis_lose
 
-After its electoral defeat, the NSDAP-DNVP coalition is collapsing into infighting and financial insolvency. The far-right's moment has seemingly ended, at least for now.
+После поражения на выборах коалиция НСДАП-НННП скатывается к междоусобицам и финансовому банкротству. Похоже, что время для ультраправых истекло, по крайней мере, на данный момент.
